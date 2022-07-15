@@ -1,0 +1,6 @@
+#+title: dice-nine
+
+Game created for the GMTK Game Jam 2022 (Theme: 'Roll of the Dice').
+
+
+A top-down shooter created in Godot.

@@ -1,0 +1,7 @@
+{:deps  {russmatney/bb-godot {:local/root "../../russmatney/bb-godot"}}
+ :paths ["src"]
+ :tasks
+ {:requires ([bb-godot.tasks :as tasks])
+  :enter    (println "Running task:" (:name (current-task)))
+  watch     tasks/watch
+  pixels    tasks/pixels}}

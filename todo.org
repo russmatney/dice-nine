@@ -6,3 +6,12 @@ CLOSED: [2022-07-15 Fri 16:34]
 CLOSED: [2022-07-15 Fri 16:34]
 * [X] player shoots at mouse
 CLOSED: [2022-07-15 Fri 16:34]
+* [X] remove bullets at some point
+CLOSED: [2022-07-15 Fri 17:09]
+* [X] fix: bullets collide with player when fired
+CLOSED: [2022-07-15 Fri 17:09]
+* [ ] remove bg from 2x2 tilemap
+* [ ] move tilemaps into our color scheme
+* [ ] apply colorscheme to dice
+* [ ] create bullet-hell enemies
+** [ ] absorb bullets matching your color

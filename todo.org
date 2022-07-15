@@ -16,6 +16,11 @@ CLOSED: [2022-07-15 Fri 17:26]
 CLOSED: [2022-07-15 Fri 17:26]
 * [X] fire slower
 CLOSED: [2022-07-15 Fri 17:30]
-* [ ] apply colorscheme to dice
+* [X] apply colorscheme to dice
+CLOSED: [2022-07-15 Fri 17:42]
+* [X] right click to 'roll' to change your side
+CLOSED: [2022-07-15 Fri 18:20]
+* [ ] unlock all the sides!
+that's the quick game
 * [ ] create bullet-hell enemies
 ** [ ] absorb bullets matching your color

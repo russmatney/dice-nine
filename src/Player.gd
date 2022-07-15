@@ -4,15 +4,32 @@ var bullet_speed = 2000
 var bullet = preload("res://src/Bullet.tscn")
 
 onready var fire_position = $FirePosition
+onready var anim = $AnimatedSprite
 
 var fire_delay = 0.3
 var next_fire_in = 0
 
+onready var roll_timer = $RollTimer
+var rolling := false
+var roll_time := 0.3
+var roll_delay := 0.3
+var next_roll_in := 0.0
+
+var current_side = "one"
+var next_side := "one"
+
 ### ready #####################################################################
 
 func _ready():
-  pass # Replace with function body.
+  if current_side:
+    set_side(current_side)
 
+### set_side ##############################################################
+
+func set_side(s):
+  current_side = s
+  if s:
+    anim.set_animation(s)
 
 ### control #####################################################################
 
@@ -32,6 +49,9 @@ func control_direction():
 
 func is_fire_pressed():
   return Input.is_action_pressed("fire")
+
+func is_roll_pressed():
+  return Input.is_action_pressed("roll")
 
 ### physics process ##########################################################
 
@@ -53,12 +73,34 @@ func _physics_process(delta):
   else:
     next_fire_in -= delta
 
+  if is_roll_pressed() and next_roll_in <= 0:
+    roll()
+    next_roll_in = roll_delay
+  else:
+    next_roll_in -= delta
+
 
 ### fire ####################################################################
 
 func fire():
   var new_bullet = bullet.instance()
+
+  # use player current_side to set bullet side
+  new_bullet.set_side(current_side)
+
   new_bullet.position = fire_position.get_global_position()
   new_bullet.rotation_degrees = rotation_degrees
   new_bullet.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
   get_tree().get_root().call_deferred("add_child", new_bullet)
+
+### roll ####################################################################
+
+func roll():
+  rolling = true
+  roll_timer.start(roll_time)
+  anim.set_animation("roll")
+  next_side = Dice.roll_six_sided([current_side])
+
+func _on_RollTimer_timeout():
+  rolling = false
+  set_side(next_side)

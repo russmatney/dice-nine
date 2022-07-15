@@ -102,7 +102,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "roll"
-frame = 2
+frame = 5
 playing = true
 
 [node name="RemoveTimer" type="Timer" parent="."]

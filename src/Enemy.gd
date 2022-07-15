@@ -12,7 +12,7 @@ onready var rolling_timer = $RollingTimer # doing-a-roll timer
 var rolling_time := 0.2
 var rolling = false
 onready var roll_timer = $RollTimer # do-another-roll timer
-export(float) var roll_time = 5.0
+export(float) var roll_every_t = 3.0
 
 onready var fire_timer = $FireTimer
 export(float) var fire_time = 2.0
@@ -35,13 +35,21 @@ func _ready():
   fire_timer.start(fire_time)
 
   # TODO maybe to hectic/want control over this behavior
-  roll_timer.wait_time = roll_time
+  roll_timer.wait_time = roll_every_t
   roll_timer.start()
 
 func set_side(side=null):
   if side:
     current_side = side
   anim.set_animation(current_side)
+
+### physics_process #####################################################################
+
+var roll_spin_force := 3000
+
+func _physics_process(delta):
+  if rolling:
+    rotate(roll_spin_force * delta * (randi() - 0.5))
 
 ### fire #####################################################################
 
@@ -54,9 +62,9 @@ func fire_new_bullet(pos: Position2D):
   new_bullet.rotation_degrees = rotation_degrees
 
   # get direction from origin to position
-  var fire_dir = pos.transform.origin.normalized() * bullet_speed
+  var fire_dir = get_global_position().direction_to(new_bullet.position).normalized() * bullet_speed
 
-  new_bullet.apply_impulse(Vector2(), fire_dir.rotated(rotation))
+  new_bullet.apply_impulse(Vector2(), fire_dir)
   get_tree().get_root().call_deferred("add_child", new_bullet)
 
 func fire():
@@ -69,7 +77,6 @@ func _on_FireTimer_timeout():
 ### roll #####################################################################
 
 func roll():
-  # TODO do a spin! tween?
   rolling = true
   rolling_timer.start(rolling_time)
   anim.set_animation("roll")

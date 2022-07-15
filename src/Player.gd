@@ -57,6 +57,7 @@ func is_roll_pressed():
 
 var speed = 500
 var velocity = Vector2()
+var roll_spin_force := 3000
 
 func _physics_process(delta):
   var intended = control_direction()
@@ -65,7 +66,10 @@ func _physics_process(delta):
   var v_diff = intended * speed
   velocity = move_and_slide(v_diff)
 
-  look_at(get_global_mouse_position())
+  if rolling:
+    rotate(roll_spin_force * delta * (randi() - 0.5))
+  else:
+    look_at(get_global_mouse_position())
 
   if is_fire_pressed() and next_fire_in <= 0:
     fire()
@@ -96,7 +100,6 @@ func fire():
 ### roll ####################################################################
 
 func roll():
-  # TODO do a spin! tween?
   rolling = true
   roll_timer.start(roll_time)
   anim.set_animation("roll")

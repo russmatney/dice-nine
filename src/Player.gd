@@ -3,6 +3,8 @@ extends KinematicBody2D
 var bullet_speed = 2000
 var bullet = preload("res://src/Bullet.tscn")
 
+onready var fire_position = $FirePosition
+
 ### ready #####################################################################
 
 func _ready():
@@ -48,7 +50,7 @@ func _physics_process(_delta):
 
 func fire():
   var new_bullet = bullet.instance()
-  new_bullet.position = get_global_position()
+  new_bullet.position = fire_position.get_global_position()
   new_bullet.rotation_degrees = rotation_degrees
   new_bullet.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
   get_tree().get_root().call_deferred("add_child", new_bullet)

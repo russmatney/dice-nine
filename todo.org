@@ -10,8 +10,12 @@ CLOSED: [2022-07-15 Fri 16:34]
 CLOSED: [2022-07-15 Fri 17:09]
 * [X] fix: bullets collide with player when fired
 CLOSED: [2022-07-15 Fri 17:09]
-* [ ] remove bg from 2x2 tilemap
-* [ ] move tilemaps into our color scheme
+* [X] remove bg from 2x2 tilemap
+CLOSED: [2022-07-15 Fri 17:26]
+* [X] move tilemaps into our color scheme
+CLOSED: [2022-07-15 Fri 17:26]
+* [X] fire slower
+CLOSED: [2022-07-15 Fri 17:30]
 * [ ] apply colorscheme to dice
 * [ ] create bullet-hell enemies
 ** [ ] absorb bullets matching your color

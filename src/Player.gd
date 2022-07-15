@@ -5,6 +5,9 @@ var bullet = preload("res://src/Bullet.tscn")
 
 onready var fire_position = $FirePosition
 
+var fire_delay = 0.3
+var next_fire_in = 0
+
 ### ready #####################################################################
 
 func _ready():
@@ -35,16 +38,21 @@ func is_fire_pressed():
 var speed = 500
 var velocity = Vector2()
 
-func _physics_process(_delta):
+func _physics_process(delta):
   var intended = control_direction()
 
+  # use delta here?
   var v_diff = intended * speed
   velocity = move_and_slide(v_diff)
 
   look_at(get_global_mouse_position())
 
-  if is_fire_pressed():
+  if is_fire_pressed() and next_fire_in <= 0:
     fire()
+    next_fire_in = fire_delay
+  else:
+    next_fire_in -= delta
+
 
 ### fire ####################################################################
 

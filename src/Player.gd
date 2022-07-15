@@ -26,10 +26,10 @@ func _ready():
 
 ### set_side ##############################################################
 
-func set_side(s):
-  current_side = s
-  if s:
-    anim.set_animation(s)
+func set_side(side=null):
+  if side:
+    current_side = side
+  anim.set_animation(current_side)
 
 ### control #####################################################################
 
@@ -96,6 +96,7 @@ func fire():
 ### roll ####################################################################
 
 func roll():
+  # TODO do a spin! tween?
   rolling = true
   roll_timer.start(roll_time)
   anim.set_animation("roll")

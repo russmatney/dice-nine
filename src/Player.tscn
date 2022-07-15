@@ -13,7 +13,11 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 4, 4 )
 frames = ExtResource( 1 )
+animation = "roll"
+frame = 2
+playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

@@ -1,0 +1,8 @@
+#+title: Todo
+
+* [X] player movement
+CLOSED: [2022-07-15 Fri 16:34]
+* [X] player looks at mouse
+CLOSED: [2022-07-15 Fri 16:34]
+* [X] player shoots at mouse
+CLOSED: [2022-07-15 Fri 16:34]

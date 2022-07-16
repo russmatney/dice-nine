@@ -58,7 +58,7 @@ func _on_enemies_cleared():
 
 func _on_upgrade_collected(upgrade):
   ._on_upgrade_collected(upgrade)
-  yield(get_tree().create_timer(2), "timeout")
+  yield(get_tree().create_timer(0.1), "timeout")
   roll_directions.visible = true
 
 # _on_player_rolled #######################################################################

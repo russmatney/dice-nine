@@ -139,6 +139,7 @@ func copy_collisions_to_occluders_for_auto_tiles(tile_id):
       print("skipping overwrite of existing occluder! ", tile_id, " ", autotile_coord)
       continue
 
+    # TODO bug - this only copies one collision shape per coord!
     var new_occluder = OccluderPolygon2D.new()
     new_occluder.polygon = d["shape"].points
     print("new occluder: ", new_occluder.polygon, " for shape: ", d["shape"].points)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/dice-roll-rainbow_sheet.png" type="Texture" id=1]
 [ext_resource path="res://src/Upgrade.gd" type="Script" id=2]
+[ext_resource path="res://assets/light6_sheet.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 1 )
@@ -98,12 +99,16 @@ script = ExtResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 14 )
 animation = "roll"
-frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 15 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 10.0
+shadow_enabled = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -20,8 +20,6 @@ CLOSED: [2022-07-15 Fri 17:30]
 CLOSED: [2022-07-15 Fri 17:42]
 * [X] right click to 'roll' to change your side
 CLOSED: [2022-07-15 Fri 18:20]
-* [ ] create bullet-hell enemies
-** [ ] absorb bullets matching your color
 * [X] progression - unlock all the sides!
 CLOSED: [2022-07-16 Sat 11:15]
 that's the quick game
@@ -44,11 +42,48 @@ CLOSED: [2022-07-16 Sat 12:54]
 CLOSED: [2022-07-16 Sat 12:54]
 * SKIP enemies don't shoot a `none` dice
 CLOSED: [2022-07-16 Sat 12:54]
-* [ ] add a laugh track when you die/get hurt?
-* [ ] pause menu
-* [ ] main menu
-* [ ] level select
-* [ ] add pause menu/controls, jazz music
-* [ ] shiny-glowy-directions to off/onscreen upgrade
-* [ ] progression - rest of the upgrades
-* [ ] splash image? maybe from the jam?
+* [ ] lighting
+dark env
+light points added
+use colors from pallette
+* [ ] highlight the upgrades more
+maybe just text that flashes/dances around it?
+** [ ] shiny-glowy-directions to off/onscreen upgrade
+** will need to support clone-mode too
+** maybe should give extra lives?
+* [ ] upgrades beyond 6 mean - extra player!
+* basic wrappers
+** [ ] splash image
+*** [ ] splash image? maybe from the jam?
+** [ ] title/main menu
+jazz music
+** [ ] controls
+jazz music
+** [ ] pause menu
+jazz music
+** [ ] level select
+jazz music
+** [ ] sounds!
+*** [ ] add a laugh track when you die/get hurt?
+*** [ ] firing bleep-pew
+*** [ ] enemy death
+* more interesting
+** [ ] more enemies
+*** mini-boss
+larger, rolls often
+gotta knock off all of their colors
+spews out/leaves behind normal enemies
+shoots at-you
+*** huge 100 boss
+subtract from his score while fighting him
+disappears around the level
+*** fires-while-rotating
+*** fires-at-you
+*** firing at more interesting intervals
+maybe based on their number?
+** [ ] clone levels
+upgrades grant you a clone
+** [ ] escort levels
+guide presidice safely to the prom
+** [ ] progression - rest of the upgrades, then clone-upgrades
+play until you have 6, then you've unlocked the escort story line

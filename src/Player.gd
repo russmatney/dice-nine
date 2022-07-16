@@ -22,8 +22,6 @@ var respawn_side
 func unlocked_sides():
   return ProgressionState.player_state["unlocked_sides"]
 
-var respawning = true
-
 ### ready #####################################################################
 
 func _ready():
@@ -31,7 +29,6 @@ func _ready():
     set_side(respawn_side)
   elif current_side:
     set_side(current_side)
-  respawning = false
 
 ### set_side ##############################################################
 
@@ -73,9 +70,6 @@ func _physics_process(delta):
 
   # use delta here?
   var v_diff = intended * speed
-  if respawning:
-    print("respawning, zeroing velocity")
-    v_diff = Vector2.ZERO
 
   velocity = move_and_slide(v_diff)
 
@@ -147,4 +141,7 @@ signal death
 func kill():
   emit_signal("death")
   # TODO animation
+  queue_free()
+
+func kill_for_respawn():
   queue_free()

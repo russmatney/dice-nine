@@ -12,6 +12,12 @@ var player_state = {
 
 var player_start
 var player
+var current_level: LevelBase
+
+### level ####################################################################
+
+func set_current_level(level: LevelBase):
+  current_level = level
 
 ### ready ##############################################################
 
@@ -25,13 +31,12 @@ func _process(_delta):
 
 ### unhandled_input ##############################################################
 
-var respawning = false
-
 func _unhandled_input(event):
   if event.is_action_pressed("respawn"):
-    respawning = true
-    player.kill()
-    # respawning handled through player-death signal
+    player_state["respawn_side"] = player.current_side
+    player.kill_for_respawn()
+    # TODO do we need to wait?
+    spawn_player()
 
 ### spawn, death, respawn ####################################################
 
@@ -51,18 +56,13 @@ func spawn_player(pos:Position2D = player_start):
 
 func _on_player_death(player):
   player_state["respawn_side"] = player.current_side
-  if respawning:
+  if player_state["lives"] > 0:
+    player_state["lives"] -= 1
     spawn_player()
-    respawning = false
-    # TODO should this respawn dead enemies too?
   else:
-    if player_state["lives"] > 0:
-      player_state["lives"] -= 1
-      spawn_player()
-    else:
-      # TODO cheat-death system?
-      print("no more lives")
-      # game over
+    # TODO cheat-death system?
+    print("no more lives")
+    # game over
 
 ### progress ##############################################################
 
@@ -72,3 +72,14 @@ func unlock_next_side():
 
 func update_player_start(new_start):
   player_start = new_start
+
+var next_level_dict = {
+  "Level1": "goto_level2",
+  "Level2": "goto_level1"
+  }
+
+func goto_next_level():
+  player.kill_for_respawn()
+  var next_level_fn = next_level_dict[current_level.name]
+  print("next_level_fn:", next_level_fn)
+  funcref(Nav, next_level_fn).call_func()

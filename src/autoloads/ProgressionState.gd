@@ -1,11 +1,10 @@
-extends CanvasLayer
-# TODO learn how this should work - using this to get the HUD placement 'right'
+extends Node
 
 var player_scene = preload("res://src/Player.tscn")
-var hud_scene = preload("res://src/ui/HUD.tscn")
-var hud: Control
+var hud: CanvasLayer
 
 var player_state = {
+  # "unlocked_sides": ["one", "two"],
   "unlocked_sides": [],
   "locked_sides": ["one", "two", "three", "four", "five", "six"],
   "health": 1,
@@ -29,14 +28,12 @@ func _ready():
 
 
 func ensure_hud():
-  if not hud:
-    hud = get_tree().get_root().find_node("HUD")
+  if not hud or not is_instance_valid(hud):
+    hud = get_tree().get_root().find_node("HUD", true, false)
     print("found hud in tree?", hud)
 
-    if not hud:
-      print("progression state creating hud!")
-      hud = hud_scene.instance()
-      call_deferred("add_child", hud)
+  print("asserting hud exists")
+  assert(hud)
 
 ### process ##############################################################
 

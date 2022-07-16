@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Upgrade.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/progression/in-game-message.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/bgs/bg1_sheet.png" type="Texture" id=7]
 [ext_resource path="res://src/YellowLight.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Sounds.tscn" type="PackedScene" id=9]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 4 )
@@ -63,3 +64,5 @@ position = Vector2( -344, 336 )
 
 [node name="YellowLight2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 800, 208 )
+
+[node name="Sounds" parent="." instance=ExtResource( 9 )]

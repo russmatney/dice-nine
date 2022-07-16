@@ -1,8 +1,9 @@
-extends Control
+extends CanvasLayer
 
 var lives_anim: AnimatedSprite
 var lives: int = 0
 
+var dice := []
 var dice_label
 var dice1
 var dice2
@@ -28,6 +29,8 @@ func _ready():
     set_lives(lives)
 
   hide_dice()
+  if dice.size() > 0:
+    set_dice()
 
 ### lives #####################################################################
 
@@ -58,16 +61,19 @@ func hide_dice():
   dice6.visible = false
   dice_label.visible = false
 
-func set_dice(dice: Array):
+func set_dice(d: Array = dice):
+  dice = d
   # TODO animate a new dice's entrance
   if dice.size() > 0:
     # TODO maybe ignore if dice is "none"
-    dice_label.visible = true
-  for d in dice:
-    match d:
-      "one": dice1.visible = true
-      "two": dice2.visible = true
-      "three": dice3.visible = true
-      "four": dice4.visible = true
-      "five": dice5.visible = true
-      "six": dice6.visible = true
+    if dice_label:
+      dice_label.visible = true
+  if dice1:
+    for d in dice:
+      match d:
+        "one": dice1.visible = true
+        "two": dice2.visible = true
+        "three": dice3.visible = true
+        "four": dice4.visible = true
+        "five": dice5.visible = true
+        "six": dice6.visible = true

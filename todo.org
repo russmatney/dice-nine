@@ -67,6 +67,8 @@ jazz music on menus
 ** [ ] add a laugh track when you die/get hurt?
 ** [ ] firing bleep-pew
 ** [ ] enemy death
+** [X] main menu song
+CLOSED: [2022-07-16 Sat 18:16]
 * [ ] upgrades beyond 6 mean - extra player!
 * more interesting
 ** [ ] more enemies

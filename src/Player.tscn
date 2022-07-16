@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/PlayerSpriteFrames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/Player.gd" type="Script" id=2]
+[ext_resource path="res://src/Sounds.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -46,5 +47,7 @@ shape = SubResource( 2 )
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 show_behind_parent = true
 occluder = SubResource( 3 )
+
+[node name="Sounds" parent="." instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="RollTimer" to="." method="_on_RollTimer_timeout"]

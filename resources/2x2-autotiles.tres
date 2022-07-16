@@ -243,4 +243,4 @@ dryrun = false
 tile_name = "2x2"
 run_gen_collisions = false
 run_clean_collisions = false
-run_copy_colls_to_occs = null
+run_copy_colls_to_occs = false

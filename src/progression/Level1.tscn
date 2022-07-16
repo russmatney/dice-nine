@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/TileMaps/3x3TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/progression/Level1.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/progression/LevelPortal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/bgs/bg1_sheet.png" type="Texture" id=7]
 [ext_resource path="res://src/YellowLight.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Sounds.tscn" type="PackedScene" id=9]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 2 )
@@ -136,3 +137,5 @@ text = "Right click to roll"
 
 [node name="YellowLight2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -456, 88 )
+
+[node name="Sounds" parent="." instance=ExtResource( 9 )]

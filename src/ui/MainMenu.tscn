@@ -375,7 +375,7 @@ position = Vector2( 88.0001, 512 )
 scale = Vector2( 10, 10 )
 frames = ExtResource( 5 )
 animation = "roll"
-frame = 5
+frame = 1
 speed_scale = 0.1
 playing = true
 
@@ -384,7 +384,6 @@ position = Vector2( 88, 88.0001 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 15 )
 animation = "roll"
-frame = 4
 speed_scale = 0.1
 playing = true
 
@@ -393,7 +392,7 @@ position = Vector2( 936, 88 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 16 )
 animation = "roll"
-frame = 5
+frame = 1
 speed_scale = 0.1
 playing = true
 
@@ -402,7 +401,6 @@ position = Vector2( 936, 512 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 17 )
 animation = "roll"
-frame = 4
 speed_scale = 0.1
 playing = true
 

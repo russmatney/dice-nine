@@ -94,6 +94,9 @@ func _physics_process(delta):
 
 ### fire ####################################################################
 
+signal fired
+onready var sounds = $Sounds
+
 func fire():
   var new_bullet = bullet.instance()
 
@@ -106,8 +109,12 @@ func fire():
   new_bullet.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
   get_tree().get_root().call_deferred("add_child", new_bullet)
 
+  sounds.player_fire_sound.play()
+  emit_signal("fired")
+
 ### roll ####################################################################
 
+signal roll_start
 # NOTE only emitted when the side changes
 signal rolled
 
@@ -120,6 +127,9 @@ func roll():
     anim.set_animation("roll")
   # maybe pull this into the progState as well
   next_side = Dice.roll_six_sided([current_side], unlocked_sides(), current_side)
+
+  if next_side != current_side:
+    emit_signal("roll_start")
 
 func _on_RollTimer_timeout():
   rolling = false

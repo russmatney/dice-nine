@@ -99,7 +99,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="HUD" type="Control"]
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

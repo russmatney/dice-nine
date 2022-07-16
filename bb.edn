@@ -4,4 +4,7 @@
  {:requires ([bb-godot.tasks :as tasks])
   :enter    (println "Running task:" (:name (current-task)))
   watch     tasks/watch
-  pixels    tasks/pixels}}
+  pixels    tasks/pixels
+
+  build  (shell "godot --export HTML5 dist/index.html")
+  deploy (shell "aws s3 sync dist/ s3://dice-nine.russmatney.com")}}

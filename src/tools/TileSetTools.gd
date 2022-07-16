@@ -106,3 +106,41 @@ func clean_collisions_for_auto_tiles(tile_id):
     if not dryrun:
       d["shape"].points = cleaned_points
     print("cleaned shape", d["shape"], d["shape"].points)
+
+
+### copy_collisions_to_occluders #######################################################
+
+
+export(bool) var run_copy_colls_to_occs = false setget run_copy_colls_occs
+
+func run_copy_colls_occs(val):
+  if val:
+    copy_collisions_to_occluders(tiles_with_name(tile_name))
+
+func copy_collisions_to_occluders(tile_ids):
+  print("copying collision shapes into occluder shapes for tile_ids: ", tile_ids)
+
+  for t_id in tile_ids:
+    var mode = tile_get_tile_mode(t_id)
+    match mode:
+      1:
+        copy_collisions_to_occluders_for_auto_tiles(t_id)
+      _:
+        print("unsupported tile mode: ", mode, " for tile: ", t_id)
+
+func copy_collisions_to_occluders_for_auto_tiles(tile_id):
+  var tile_shape_dicts = tile_get_shapes(tile_id)
+  for d in tile_shape_dicts:
+    var autotile_coord = d["autotile_coord"]
+
+    var existing_occluder = autotile_get_light_occluder(tile_id, autotile_coord)
+
+    if existing_occluder:
+      print("skipping overwrite of existing occluder! ", tile_id, " ", autotile_coord)
+      continue
+
+    var new_occluder = OccluderPolygon2D.new()
+    new_occluder.polygon = d["shape"].points
+    print("new occluder: ", new_occluder.polygon, " for shape: ", d["shape"].points)
+    if not dryrun:
+      autotile_set_light_occluder(tile_id, new_occluder, autotile_coord)

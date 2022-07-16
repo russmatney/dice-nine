@@ -35,3 +35,5 @@ can only hit other `ones`
 or do you lose the side you're showing when hit?
 
 ** level 2 -
+* [ ] HUD showing health (number of hearts?)
+* [ ] HUD showing unlocked sides

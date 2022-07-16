@@ -3,8 +3,8 @@ extends Node
 var player_scene = preload("res://src/Player.tscn")
 
 var player_state = {
-  "unlocked_sides": ["one"],
-  "locked_sides": ["two", "three", "four", "five", "six"],
+  "unlocked_sides": [],
+  "locked_sides": ["one", "two", "three", "four", "five", "six"],
   "health": 3,
   "lives": 3,
 }

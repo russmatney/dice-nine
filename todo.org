@@ -41,3 +41,4 @@ or do you lose the side you're showing when hit?
 * [ ] enemies don't shoot a `none` dice
 * [ ] add a laugh track when you die/get hurt?
 * [ ] add pause menu/controls, jazz music
+* [ ] shiny-glowy-directions to off/onscreen upgrade

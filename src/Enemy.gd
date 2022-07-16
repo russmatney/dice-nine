@@ -34,10 +34,11 @@ export(Array, String) var available_sides = []
 
 func _ready():
   if not current_side:
-    if available_sides.size() > 1:
+    if available_sides.size() > 0:
       current_side = available_sides[0]
     else:
       current_side = "one"
+  set_side()
 
   if not disabled:
     fire_timer.wait_time = fire_time

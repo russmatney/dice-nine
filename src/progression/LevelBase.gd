@@ -32,6 +32,7 @@ func spawn_enemy(pos:Position2D):
   enemies.append(enemy)
   enemy.connect("death", self, "_on_enemy_death", [enemy])
   enemy.position = pos.position
+  enemy.available_sides = [pos.initial_side]
   get_tree().get_root().call_deferred("add_child", enemy)
 
 func _on_enemy_death(en):

@@ -15,8 +15,12 @@ var roll_time := 0.3
 var roll_delay := 0.3
 var next_roll_in := 0.0
 
-var current_side = "one"
+var current_side := "one"
 var next_side := "one"
+var unlocked_sides = []
+
+var health: int
+var lives: int
 
 ### ready #####################################################################
 
@@ -71,7 +75,7 @@ func _physics_process(delta):
   else:
     look_at(get_global_mouse_position())
 
-  if is_fire_pressed() and next_fire_in <= 0:
+  if is_fire_pressed() and next_fire_in <= 0 and not rolling:
     fire()
     next_fire_in = fire_delay
   else:
@@ -102,8 +106,11 @@ func fire():
 func roll():
   rolling = true
   roll_timer.start(roll_time)
-  anim.set_animation("roll")
-  next_side = Dice.roll_six_sided([current_side])
+  if unlocked_sides.size() > 1:
+    # TODO roll_anim for each case?
+    # TODO or setting a random side while rolling
+    anim.set_animation("roll")
+  next_side = Dice.roll_six_sided([current_side], unlocked_sides, current_side)
 
 func _on_RollTimer_timeout():
   rolling = false

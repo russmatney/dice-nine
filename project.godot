@@ -11,12 +11,13 @@ config_version=4
 [application]
 
 config/name="dice-nine"
-run/main_scene="res://src/demos/EnemyDemo.tscn"
+run/main_scene="res://src/progression/Level1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Dice="*res://src/autoloads/Dice.gd"
+ProgressionState="*res://src/autoloads/ProgressionState.gd"
 
 [display]
 

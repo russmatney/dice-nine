@@ -20,7 +20,18 @@ CLOSED: [2022-07-15 Fri 17:30]
 CLOSED: [2022-07-15 Fri 17:42]
 * [X] right click to 'roll' to change your side
 CLOSED: [2022-07-15 Fri 18:20]
-* [ ] unlock all the sides!
-that's the quick game
 * [ ] create bullet-hell enemies
 ** [ ] absorb bullets matching your color
+* [ ] progression - unlock all the sides!
+that's the quick game
+** level 1 - we're a zero
+need to dodge the ones and get the ~sparkly 1~
+
+you're side `one`
+can shoot `ones`
+rolling returns to 1
+can only hit other `ones`
+
+or do you lose the side you're showing when hit?
+
+** level 2 -

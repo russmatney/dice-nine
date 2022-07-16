@@ -5,6 +5,8 @@ var bullet = preload("res://src/Bullet.tscn")
 
 onready var anim = $AnimatedSprite
 
+export(bool) var disabled = false
+
 export(String) var current_side: String
 var next_side: String
 
@@ -35,12 +37,13 @@ func _ready():
     else:
       current_side = "one"
 
-  fire_timer.wait_time = fire_time
-  fire_timer.start(fire_time)
+  if not disabled:
+    fire_timer.wait_time = fire_time
+    fire_timer.start(fire_time)
 
-  # TODO maybe too hectic/want control over this behavior
-  roll_timer.wait_time = roll_every_t
-  roll_timer.start()
+    # TODO maybe too hectic/want control over this behavior
+    roll_timer.wait_time = roll_every_t
+    roll_timer.start()
 
 func set_side(side=null):
   if side:
@@ -64,6 +67,7 @@ func fire_new_bullet(pos: Position2D):
   new_bullet.set_side(current_side)
   new_bullet.position = pos.get_global_position()
   new_bullet.rotation_degrees = rotation_degrees
+  new_bullet.shot_by_player = false
 
   # get direction from origin to position
   var fire_dir = get_global_position().direction_to(new_bullet.position).normalized() * bullet_speed
@@ -95,3 +99,6 @@ func _on_RollTimer_timeout():
   if available_sides.size() > 1:
     # do a roll!
     roll()
+
+### collisions #####################################################################
+

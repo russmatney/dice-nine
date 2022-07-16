@@ -23,16 +23,19 @@ current = true
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 160, -520 )
+disabled = true
 current_side = "one"
 available_sides = [ "one" ]
 
 [node name="Enemy2" parent="." instance=ExtResource( 3 )]
 position = Vector2( -520, -424 )
+disabled = true
 current_side = "one"
 available_sides = [ "one" ]
 
 [node name="Enemy3" parent="." instance=ExtResource( 3 )]
 position = Vector2( -456, 88 )
+disabled = true
 current_side = "one"
 available_sides = [ "one" ]
 

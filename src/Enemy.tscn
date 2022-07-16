@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://enemy_spriteframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/Enemy.gd" type="Script" id=2]
@@ -6,29 +6,32 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 24 )
+
+[node name="Enemy" type="KinematicBody2D" groups=["enemies"]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 2, 2 )
+scale = Vector2( 2.5, 2.5 )
 frames = ExtResource( 1 )
 animation = "one"
 playing = true
 
 [node name="FirePosition1" type="Position2D" parent="."]
-position = Vector2( 0, 8 )
+position = Vector2( 0, 24 )
 
 [node name="FirePosition2" type="Position2D" parent="."]
-position = Vector2( -8, 0 )
+position = Vector2( -24, 0 )
 
 [node name="FirePosition3" type="Position2D" parent="."]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -24 )
 
 [node name="FirePosition4" type="Position2D" parent="."]
-position = Vector2( 8, 0 )
+position = Vector2( 24, 0 )
 
 [node name="FireTimer" type="Timer" parent="."]
 
@@ -36,6 +39,13 @@ position = Vector2( 8, 0 )
 
 [node name="RollingTimer" type="Timer" parent="."]
 
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource( 2 )
+
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
 [connection signal="timeout" from="RollTimer" to="." method="_on_RollTimer_timeout"]
 [connection signal="timeout" from="RollingTimer" to="." method="_on_RollingTimer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]

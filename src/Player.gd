@@ -99,6 +99,7 @@ func fire():
   # use player current_side to set bullet side
   new_bullet.set_side(current_side)
 
+  new_bullet.shot_by_player = true
   new_bullet.position = fire_position.get_global_position()
   new_bullet.rotation_degrees = rotation_degrees
   new_bullet.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
@@ -119,3 +120,6 @@ func roll():
 func _on_RollTimer_timeout():
   rolling = false
   set_side(next_side)
+
+### collisions #####################################################################
+

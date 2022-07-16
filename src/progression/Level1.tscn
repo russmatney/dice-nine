@@ -43,16 +43,16 @@ current_side = "one"
 available_sides = [ "one" ]
 
 [node name="MoveDirections" type="RichTextLabel" parent="."]
-margin_left = -216.0
-margin_top = 104.0
-margin_right = 144.0
-margin_bottom = 176.0
+margin_left = -248.0
+margin_top = 96.0
+margin_right = 376.0
+margin_bottom = 184.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
-bbcode_text = "[center]WASD to move[/center]"
-text = "WASD to move"
+bbcode_text = "[center]WASD or Arrows to move[/center]"
+text = "WASD or Arrows to move"
 
-[node name="Arrow" type="RichTextLabel" parent="."]
+[node name="MoveArrow" type="RichTextLabel" parent="."]
 margin_left = -8.0
 margin_top = -208.0
 margin_right = 69.0
@@ -63,7 +63,7 @@ bbcode_enabled = true
 bbcode_text = "[center]<-[/center]"
 text = "<-"
 
-[node name="Arrow2" type="RichTextLabel" parent="."]
+[node name="MoveArrow2" type="RichTextLabel" parent="."]
 margin_left = -376.0
 margin_top = -304.0
 margin_right = -299.0
@@ -74,7 +74,7 @@ bbcode_enabled = true
 bbcode_text = "[center]<-[/center]"
 text = "<-"
 
-[node name="Arrow3" type="RichTextLabel" parent="."]
+[node name="UpgradeArrow" type="RichTextLabel" parent="."]
 margin_left = 48.0
 margin_top = -824.0
 margin_right = 125.0
@@ -85,7 +85,7 @@ bbcode_enabled = true
 bbcode_text = "[center]<-[/center]"
 text = "<-"
 
-[node name="Arrow4" type="RichTextLabel" parent="."]
+[node name="PortalArrow" type="RichTextLabel" parent="."]
 margin_left = 296.0
 margin_top = -360.0
 margin_right = 373.0
@@ -97,14 +97,24 @@ bbcode_text = "[center]<-[/center]"
 text = "<-"
 
 [node name="FireDirections" type="RichTextLabel" parent="."]
-margin_left = -688.0
-margin_top = -608.0
-margin_right = -224.0
-margin_bottom = -528.0
+margin_left = -600.0
+margin_top = -744.0
+margin_right = -136.0
+margin_bottom = -664.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]Left click to fire[/center]"
 text = "Left click to fire"
+
+[node name="DodgeDirections" type="RichTextLabel" parent="."]
+margin_left = -424.0
+margin_top = -512.0
+margin_right = 40.0
+margin_bottom = -432.0
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[center]Dodge the Dice![/center]"
+text = "Dodge the Dice!"
 
 [node name="RollDirections" type="RichTextLabel" parent="."]
 margin_left = 88.0

@@ -98,7 +98,7 @@ script = ExtResource( 2 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 14 )
 animation = "roll"
-frame = 4
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

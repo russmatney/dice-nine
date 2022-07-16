@@ -108,6 +108,9 @@ func fire():
 
 ### roll ####################################################################
 
+# NOTE only emitted when the side changes
+signal rolled
+
 func roll():
   rolling = true
   roll_timer.start(roll_time)
@@ -120,7 +123,12 @@ func roll():
 
 func _on_RollTimer_timeout():
   rolling = false
+  var did_side_change = next_side != current_side
   set_side(next_side)
+
+  if did_side_change:
+    emit_signal("rolled")
+
 
 ### collisions #####################################################################
 
@@ -130,7 +138,6 @@ signal hit
 func hit():
   emit_signal("hit")
   health -= 1
-  print("player hit", health)
   if health <= 0:
     kill()
 

@@ -22,7 +22,8 @@ CLOSED: [2022-07-15 Fri 17:42]
 CLOSED: [2022-07-15 Fri 18:20]
 * [ ] create bullet-hell enemies
 ** [ ] absorb bullets matching your color
-* [ ] progression - unlock all the sides!
+* [X] progression - unlock all the sides!
+CLOSED: [2022-07-16 Sat 11:15]
 that's the quick game
 ** level 1 - we're a zero
 need to dodge the ones and get the ~sparkly 1~
@@ -35,10 +36,11 @@ can only hit other `ones`
 or do you lose the side you're showing when hit?
 
 ** level 2 -
+* [ ] reveal instructions in order, after the upgrade was collected
 * [ ] HUD showing health (number of hearts?)
 * [ ] HUD showing unlocked sides
-* [ ] reveal instructions in order, after the upgrade was collected
 * [ ] enemies don't shoot a `none` dice
 * [ ] add a laugh track when you die/get hurt?
 * [ ] add pause menu/controls, jazz music
 * [ ] shiny-glowy-directions to off/onscreen upgrade
+* [ ] progression - rest of the upgrades

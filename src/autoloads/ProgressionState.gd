@@ -42,7 +42,7 @@ func _unhandled_input(event):
 
 ### spawn, death, respawn ####################################################
 
-func spawn_player(pos:Position2D = player_start):
+func spawn_player(pos:Position2D = player_start) -> Node:
   player_start = pos
   var state = ProgressionState.player_state
 
@@ -55,6 +55,8 @@ func spawn_player(pos:Position2D = player_start):
 
   player.position = player_start.position
   get_tree().get_root().call_deferred("add_child", player)
+
+  return player
 
 func _on_player_death(p):
   player_state["respawn_side"] = p.current_side

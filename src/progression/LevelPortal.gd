@@ -7,7 +7,6 @@ onready var shape = $Area2D/CollisionShape2D
 
 
 func set_disabled(val: bool):
-  print("portal set_disabled called", val)
   shape.set_deferred("disabled", val)
   disabled = val
 

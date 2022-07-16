@@ -4,6 +4,7 @@ class_name LevelBase
 var enemy_scene = preload("res://src/Enemy.tscn")
 
 onready var player_start = $PlayerStart
+var player
 var portals = []
 var upgrades = []
 
@@ -19,8 +20,11 @@ func _ready():
 
   portals = get_tree().get_nodes_in_group("portals")
   upgrades = get_tree().get_nodes_in_group("upgrades")
+  for up in upgrades:
+    up.connect("collected", self, "_on_upgrade_collected", [up])
 
-  ProgressionState.spawn_player(player_start)
+  player = ProgressionState.spawn_player(player_start)
+  player.connect("rolled", self, "_on_player_rolled")
 
   enemies = get_tree().get_nodes_in_group("enemies")
   for en in enemies:
@@ -58,6 +62,16 @@ func _on_enemy_death(en):
 
 func _on_enemies_cleared():
   print("enemies cleared!")
+
+# _on_upgrade_collected #######################################################################
+
+func _on_upgrade_collected(_upgrade):
+  print("upgrade collected!")
+
+# _on_player_rolled #######################################################################
+
+func _on_player_rolled():
+  print("player rolled")
 
 # hide/show portals #######################################################################
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/ui/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/MainMenuButton.tscn" type="PackedScene" id=2]
@@ -7,12 +7,195 @@
 [ext_resource path="res://src/ui/mainmenu_spriteframes.tres" type="SpriteFrames" id=5]
 [ext_resource path="res://assets/GMTK Game Jam 2022/GMTK Game Jam 2022 Logos/Jam Logo 2022.png" type="Texture" id=6]
 [ext_resource path="res://assets/GMTK Game Jam 2022/Theme Logo/2022-Theme-Image.png" type="Texture" id=7]
+[ext_resource path="res://assets/dice-roll-rainbow_sheet.png" type="Texture" id=8]
+[ext_resource path="res://assets/songs/Late Night Radio.mp3" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
 outline_size = 5
 outline_color = Color( 0.670588, 0.121569, 0.396078, 1 )
 font_data = ExtResource( 3 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 8 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 8 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 8 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 8 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 8 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 8 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 8 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 8 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 8 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 8 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 8 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "four",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "three",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "one",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "five",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "six",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 2 ), SubResource( 3 ), SubResource( 7 ), SubResource( 6 ), SubResource( 5 ) ],
+"loop": true,
+"name": "roll",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "two",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "four",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "three",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "one",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "five",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "six",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 4 ), SubResource( 7 ), SubResource( 2 ), SubResource( 5 ), SubResource( 3 ) ],
+"loop": true,
+"name": "roll",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "two",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "four",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "three",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "one",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "five",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "six",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 2 ), SubResource( 4 ), SubResource( 6 ), SubResource( 5 ), SubResource( 7 ) ],
+"loop": true,
+"name": "roll",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "two",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+} ]
 
 [node name="MainMenu" type="Control"]
 script = ExtResource( 1 )
@@ -193,29 +376,34 @@ scale = Vector2( 10, 10 )
 frames = ExtResource( 5 )
 animation = "roll"
 frame = 5
+speed_scale = 0.1
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="."]
 position = Vector2( 88, 88.0001 )
 scale = Vector2( 10, 10 )
-frames = ExtResource( 5 )
+frames = SubResource( 15 )
 animation = "roll"
+frame = 4
+speed_scale = 0.1
 playing = true
 
 [node name="AnimatedSprite9" type="AnimatedSprite" parent="."]
 position = Vector2( 936, 88 )
 scale = Vector2( 10, 10 )
-frames = ExtResource( 5 )
+frames = SubResource( 16 )
 animation = "roll"
-frame = 2
+frame = 5
+speed_scale = 0.1
 playing = true
 
 [node name="AnimatedSprite10" type="AnimatedSprite" parent="."]
 position = Vector2( 936, 512 )
 scale = Vector2( 10, 10 )
-frames = ExtResource( 5 )
+frames = SubResource( 17 )
 animation = "roll"
-frame = 1
+frame = 4
+speed_scale = 0.1
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -233,6 +421,11 @@ margin_right = 2563.0
 margin_bottom = 1510.0
 rect_scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 6 )
+
+[node name="MenuSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -6.0
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/VBoxContainer/LevelSelect" to="." method="_on_LevelSelect_pressed"]

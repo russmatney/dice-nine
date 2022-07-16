@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Night in Venice.mp3-d40bcda575fcfeeb5fbd727d22bc958e.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/Night in Venice.mp3"
+dest_files=[ "res://.import/Night in Venice.mp3-d40bcda575fcfeeb5fbd727d22bc958e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

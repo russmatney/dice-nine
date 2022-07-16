@@ -48,18 +48,22 @@ dark env
 light points added
 use colors from pallette
 * [ ] basic wrappers
-** [ ] title/main menu
+** [X] title/main menu
+CLOSED: [2022-07-16 Sat 17:41]
+** SKIP level select
+CLOSED: [2022-07-16 Sat 17:41]
 jazz music
+** [X] splash image
+CLOSED: [2022-07-16 Sat 17:41]
+*** [X] splash image? maybe from the jam?
+CLOSED: [2022-07-16 Sat 17:41]
 ** [ ] controls
 jazz music
 ** [ ] pause menu
 jazz music
-** [ ] level select
-jazz music
-** [ ] splash image
-*** [ ] splash image? maybe from the jam?
 ** [ ] credits
-* [ ] sounds!
+* [ ] sounds, music
+jazz music on menus
 ** [ ] add a laugh track when you die/get hurt?
 ** [ ] firing bleep-pew
 ** [ ] enemy death

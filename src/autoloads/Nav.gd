@@ -39,6 +39,24 @@ func _deferred_goto_scene(path):
 # Public Helpers
 ###########################################################################
 
+var main_menu = "res://src/ui/MainMenu.tscn"
+func goto_main_menu():
+  goto_scene(main_menu)
+
+var controls = "res://src/ui/Controls.tscn"
+func goto_controls():
+  goto_scene(controls)
+
+var credits = "res://src/ui/Credits.tscn"
+func goto_credits():
+  goto_scene(credits)
+
+# var level_select = "res://src/ui/LevelSelect.tscn"
+# func goto_level_select():
+#   goto_scene(level_select)
+
+### demos ##########################################################
+
 var tiles_demo = "res://src/demos/TilesDemo.tscn"
 func goto_tiles_demo():
   goto_scene(tiles_demo)
@@ -46,6 +64,8 @@ func goto_tiles_demo():
 var enemy_demo = "res://src/demos/EnemyDemo.tscn"
 func goto_enemy_demo():
   goto_scene(enemy_demo)
+
+### levels ##########################################################
 
 var level1 = "res://src/progression/Level1.tscn"
 func goto_level1():
@@ -59,3 +79,12 @@ func goto_level2():
 var level3 = "res://src/progression/Level3.tscn"
 func goto_level3():
   goto_scene(level3)
+
+
+### general ##################################################################
+
+func win():
+  goto_main_menu()
+
+func start():
+  goto_level1()

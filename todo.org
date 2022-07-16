@@ -42,19 +42,12 @@ CLOSED: [2022-07-16 Sat 12:54]
 CLOSED: [2022-07-16 Sat 12:54]
 * SKIP enemies don't shoot a `none` dice
 CLOSED: [2022-07-16 Sat 12:54]
-* [ ] lighting
+* [X] lighting
+CLOSED: [2022-07-16 Sat 15:11]
 dark env
 light points added
 use colors from pallette
-* [ ] highlight the upgrades more
-maybe just text that flashes/dances around it?
-** [ ] shiny-glowy-directions to off/onscreen upgrade
-** will need to support clone-mode too
-** maybe should give extra lives?
-* [ ] upgrades beyond 6 mean - extra player!
-* basic wrappers
-** [ ] splash image
-*** [ ] splash image? maybe from the jam?
+* [ ] basic wrappers
 ** [ ] title/main menu
 jazz music
 ** [ ] controls
@@ -63,10 +56,14 @@ jazz music
 jazz music
 ** [ ] level select
 jazz music
-** [ ] sounds!
-*** [ ] add a laugh track when you die/get hurt?
-*** [ ] firing bleep-pew
-*** [ ] enemy death
+** [ ] splash image
+*** [ ] splash image? maybe from the jam?
+** [ ] credits
+* [ ] sounds!
+** [ ] add a laugh track when you die/get hurt?
+** [ ] firing bleep-pew
+** [ ] enemy death
+* [ ] upgrades beyond 6 mean - extra player!
 * more interesting
 ** [ ] more enemies
 *** mini-boss
@@ -87,3 +84,8 @@ upgrades grant you a clone
 guide presidice safely to the prom
 ** [ ] progression - rest of the upgrades, then clone-upgrades
 play until you have 6, then you've unlocked the escort story line
+* [ ] highlight the upgrades more
+maybe just text that flashes/dances around it?
+** shiny-glowy-directions to off/onscreen upgrade
+** will need to support clone-mode too
+** maybe should give extra lives?

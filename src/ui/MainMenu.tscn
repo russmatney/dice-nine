@@ -190,7 +190,7 @@ position = Vector2( 88.0001, 512 )
 scale = Vector2( 10, 10 )
 frames = ExtResource( 5 )
 animation = "roll"
-frame = 5
+frame = 2
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="."]
@@ -198,6 +198,7 @@ position = Vector2( 88, 88.0001 )
 scale = Vector2( 10, 10 )
 frames = ExtResource( 5 )
 animation = "roll"
+frame = 3
 playing = true
 
 [node name="AnimatedSprite9" type="AnimatedSprite" parent="."]
@@ -205,7 +206,7 @@ position = Vector2( 936, 88 )
 scale = Vector2( 10, 10 )
 frames = ExtResource( 5 )
 animation = "roll"
-frame = 2
+frame = 5
 playing = true
 
 [node name="AnimatedSprite10" type="AnimatedSprite" parent="."]
@@ -213,7 +214,7 @@ position = Vector2( 936, 512 )
 scale = Vector2( 10, 10 )
 frames = ExtResource( 5 )
 animation = "roll"
-frame = 1
+frame = 4
 playing = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]

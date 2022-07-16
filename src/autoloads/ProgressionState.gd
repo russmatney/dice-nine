@@ -27,8 +27,16 @@ func set_current_level(level: LevelBase):
 func _ready():
   print("progression state ready")
 
-  hud = hud_scene.instance()
-  call_deferred("add_child", hud)
+
+func ensure_hud():
+  if not hud:
+    hud = get_tree().get_root().find_node("HUD")
+    print("found hud in tree?", hud)
+
+    if not hud:
+      print("progression state creating hud!")
+      hud = hud_scene.instance()
+      call_deferred("add_child", hud)
 
 ### process ##############################################################
 
@@ -91,11 +99,12 @@ func update_player_start(new_start):
 var next_level_dict = {
   "Level1": "goto_level2",
   "Level2": "goto_level3",
-  "Level3": "goto_level1",
-  }
+  "Level3": "win",
+}
 
 func goto_next_level():
   player_state["respawn_side"] = player.current_side
   player.kill_for_respawn()
+  # NOTE depends on the 'name' set on the level node!! Brittle!
   var next_level_fn = next_level_dict[current_level.name]
   funcref(Nav, next_level_fn).call_func()

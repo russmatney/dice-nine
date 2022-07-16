@@ -34,7 +34,7 @@ initial_side = "two"
 
 [node name="EnemyStart3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 456, -292 )
-initial_side = "two"
+initial_side = "three"
 
 [node name="EnemyStart4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 288, -288 )
@@ -42,6 +42,25 @@ initial_side = "two"
 
 [node name="EnemyStart5" parent="." instance=ExtResource( 1 )]
 position = Vector2( 208, -272 )
+initial_side = "two"
+other_sides = [ "one" ]
+
+[node name="EnemyStart15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 650, -18 )
+initial_side = "two"
+
+[node name="EnemyStart16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 554, -18 )
+
+[node name="EnemyStart17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 458, -22 )
+initial_side = "two"
+
+[node name="EnemyStart18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 290, -18 )
+
+[node name="EnemyStart19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 210, -2 )
 initial_side = "two"
 
 [node name="EnemyStart6" parent="." instance=ExtResource( 1 )]
@@ -53,6 +72,7 @@ position = Vector2( 56, -216 )
 [node name="EnemyStart8" parent="." instance=ExtResource( 1 )]
 position = Vector2( -392, -152 )
 initial_side = "two"
+other_sides = [ "one" ]
 
 [node name="EnemyStart9" parent="." instance=ExtResource( 1 )]
 position = Vector2( -216, -184 )
@@ -72,7 +92,9 @@ initial_side = "three"
 [node name="EnemyStart13" parent="." instance=ExtResource( 1 )]
 position = Vector2( 50, 410 )
 initial_side = "three"
+other_sides = [ "two", "one" ]
 
 [node name="EnemyStart14" parent="." instance=ExtResource( 1 )]
 position = Vector2( 226, 378 )
 initial_side = "three"
+other_sides = [ "one", "two" ]

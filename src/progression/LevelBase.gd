@@ -32,11 +32,12 @@ func spawn_enemy(pos:Position2D):
   enemies.append(enemy)
   enemy.connect("death", self, "_on_enemy_death", [enemy])
   enemy.position = pos.position
-  enemy.available_sides = [pos.initial_side]
+  var sides = [pos.initial_side]
+  sides.append_array(pos.other_sides)
+  enemy.available_sides = sides
   get_tree().get_root().call_deferred("add_child", enemy)
 
 func _on_enemy_death(en):
-  print("parent on enemy death")
   enemies.erase(en)
 
   if enemies.size() <= 0:

@@ -7,7 +7,7 @@ onready var anim = $AnimatedSprite
 
 export(bool) var disabled = false
 
-export(int) var health = 3
+export(int) var health = 1
 
 export(String) var current_side: String
 var next_side: String

@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="dice-nine"
 run/main_scene="res://src/ui/MainMenu.tscn"
+boot_splash/image="res://assets/GMTK Game Jam 2022/GMTK Logos/GMTK Jam 2022.png"
 config/icon="res://icon.png"
 
 [autoload]

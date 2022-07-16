@@ -33,9 +33,11 @@ func _process(_delta):
 
 func _unhandled_input(event):
   if event.is_action_pressed("respawn"):
-    player_state["respawn_side"] = player.current_side
-    player.kill_for_respawn()
+    if is_instance_valid(player):
+      player_state["respawn_side"] = player.current_side
+      player.kill_for_respawn()
     # TODO do we need to wait?
+    # NOTE this allows for life after death
     spawn_player()
 
 ### spawn, death, respawn ####################################################

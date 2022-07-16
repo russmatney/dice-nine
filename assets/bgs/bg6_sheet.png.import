@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light7_sheet.png-870e1bfcdc3e278fa5dbf0b1305d336a.stex"
+path="res://.import/bg6_sheet.png-b4b2d47e90d3f0da9a273514ea428812.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/light7_sheet.png"
-dest_files=[ "res://.import/light7_sheet.png-870e1bfcdc3e278fa5dbf0b1305d336a.stex" ]
+source_file="res://assets/bgs/bg6_sheet.png"
+dest_files=[ "res://.import/bg6_sheet.png-b4b2d47e90d3f0da9a273514ea428812.stex" ]
 
 [params]
 

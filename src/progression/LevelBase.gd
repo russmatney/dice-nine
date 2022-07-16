@@ -18,6 +18,8 @@ signal enemies_cleared
 func _ready():
   assert(player_start)
 
+  ProgressionState.ensure_hud()
+
   portals = get_tree().get_nodes_in_group("portals")
   upgrades = get_tree().get_nodes_in_group("upgrades")
   for up in upgrades:

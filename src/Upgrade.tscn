@@ -107,6 +107,7 @@ playing = true
 shape = SubResource( 15 )
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 texture = ExtResource( 3 )
 texture_scale = 10.0
 shadow_enabled = true

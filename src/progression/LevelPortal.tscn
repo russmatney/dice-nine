@@ -114,10 +114,11 @@ shape = SubResource( 15 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 16 )
 animation = "roll"
-frame = 5
+frame = 2
 playing = true
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 texture = ExtResource( 3 )
 texture_scale = 10.0
 shadow_enabled = true

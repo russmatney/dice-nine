@@ -3,6 +3,7 @@
 [ext_resource path="res://assets/lights/light2_sheet.png" type="Texture" id=1]
 
 [node name="YellowLight" type="Light2D"]
+visible = false
 texture = ExtResource( 1 )
-texture_scale = 10.0
+texture_scale = 5.0
 shadow_enabled = true

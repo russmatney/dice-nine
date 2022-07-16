@@ -36,11 +36,19 @@ can only hit other `ones`
 or do you lose the side you're showing when hit?
 
 ** level 2 -
-* [ ] reveal instructions in order, after the upgrade was collected
-* [ ] HUD showing health (number of hearts?)
-* [ ] HUD showing unlocked sides
-* [ ] enemies don't shoot a `none` dice
+* [X] reveal instructions in order, after the upgrade was collected
+CLOSED: [2022-07-16 Sat 11:50]
+* [X] HUD showing health (number of hearts?)
+CLOSED: [2022-07-16 Sat 12:54]
+* [X] HUD showing unlocked sides
+CLOSED: [2022-07-16 Sat 12:54]
+* SKIP enemies don't shoot a `none` dice
+CLOSED: [2022-07-16 Sat 12:54]
 * [ ] add a laugh track when you die/get hurt?
+* [ ] pause menu
+* [ ] main menu
+* [ ] level select
 * [ ] add pause menu/controls, jazz music
 * [ ] shiny-glowy-directions to off/onscreen upgrade
 * [ ] progression - rest of the upgrades
+* [ ] splash image? maybe from the jam?

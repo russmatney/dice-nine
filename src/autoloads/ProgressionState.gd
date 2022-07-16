@@ -1,6 +1,9 @@
-extends Node
+extends CanvasLayer
+# TODO learn how this should work - using this to get the HUD placement 'right'
 
 var player_scene = preload("res://src/Player.tscn")
+var hud_scene = preload("res://src/ui/HUD.tscn")
+var hud: Control
 
 var player_state = {
   "unlocked_sides": [],
@@ -23,6 +26,9 @@ func set_current_level(level: LevelBase):
 
 func _ready():
   print("progression state ready")
+
+  hud = hud_scene.instance()
+  call_deferred("add_child", hud)
 
 ### process ##############################################################
 
@@ -56,6 +62,9 @@ func spawn_player(pos:Position2D = player_start) -> Node:
   player.position = player_start.position
   get_tree().get_root().call_deferred("add_child", player)
 
+  hud.set_lives(player_state["lives"])
+  hud.set_dice(player_state["unlocked_sides"])
+
   return player
 
 func _on_player_death(p):
@@ -73,6 +82,8 @@ func _on_player_death(p):
 func unlock_next_side():
   var next_side = player_state["locked_sides"].pop_front()
   player_state["unlocked_sides"].append(next_side)
+  # TODO animate
+  hud.set_dice(player_state["unlocked_sides"])
 
 func update_player_start(new_start):
   player_start = new_start

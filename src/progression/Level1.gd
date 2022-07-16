@@ -35,7 +35,7 @@ func _ready():
   # emit_signal("start_tut")
 
 func start_tut():
-  # TODO fade in?
+  # TODO text could enter at center/from side, then move to it's location
   yield(get_tree().create_timer(0.5), "timeout")
   move_directions.visible = true
   move_arrow.visible = true

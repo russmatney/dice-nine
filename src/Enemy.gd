@@ -7,6 +7,8 @@ onready var anim = $AnimatedSprite
 
 export(bool) var disabled = false
 
+export(int) var health = 3
+
 export(String) var current_side: String
 var next_side: String
 
@@ -102,3 +104,19 @@ func _on_RollTimer_timeout():
 
 ### collisions #####################################################################
 
+signal hit
+
+func hit():
+  emit_signal("hit")
+  health -= 1
+  if health <= 0:
+    kill()
+
+### death #####################################################################
+
+signal death
+
+func kill():
+  emit_signal("death")
+  # TODO animation
+  queue_free()

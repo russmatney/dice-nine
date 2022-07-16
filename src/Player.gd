@@ -17,18 +17,21 @@ var next_roll_in := 0.0
 
 var current_side := "none"
 var next_side := ""
+var respawn_side
 
 func unlocked_sides():
   return ProgressionState.player_state["unlocked_sides"]
 
-var health: int
-var lives: int
+var respawning = true
 
 ### ready #####################################################################
 
 func _ready():
-  if current_side:
+  if respawn_side:
+    set_side(respawn_side)
+  elif current_side:
     set_side(current_side)
+  respawning = false
 
 ### set_side ##############################################################
 
@@ -70,6 +73,10 @@ func _physics_process(delta):
 
   # use delta here?
   var v_diff = intended * speed
+  if respawning:
+    print("respawning, zeroing velocity")
+    v_diff = Vector2.ZERO
+
   velocity = move_and_slide(v_diff)
 
   if rolling:
@@ -123,3 +130,21 @@ func _on_RollTimer_timeout():
 
 ### collisions #####################################################################
 
+var health: int
+signal hit
+
+func hit():
+  emit_signal("hit")
+  health -= 1
+  print("player hit", health)
+  if health <= 0:
+    kill()
+
+### death #####################################################################
+
+signal death
+
+func kill():
+  emit_signal("death")
+  # TODO animation
+  queue_free()

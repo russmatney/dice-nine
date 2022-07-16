@@ -43,9 +43,12 @@ func _on_Area2D_body_entered(body:Node):
   if body != self:
     # was bullet fired by player or enemy?
     if shot_by_player and body.is_in_group("enemies"):
+      if body.has_method("hit"):
+        body.hit()
       kill()
     elif not shot_by_player and body.is_in_group("player"):
-      print("hit player")
+      if body.has_method("hit"):
+        body.hit()
       kill()
     elif body is TileMap:
       kill()

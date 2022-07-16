@@ -47,5 +47,3 @@ shape = SubResource( 2 )
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
 [connection signal="timeout" from="RollTimer" to="." method="_on_RollTimer_timeout"]
 [connection signal="timeout" from="RollingTimer" to="." method="_on_RollingTimer_timeout"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]

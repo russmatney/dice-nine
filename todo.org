@@ -37,3 +37,5 @@ or do you lose the side you're showing when hit?
 ** level 2 -
 * [ ] HUD showing health (number of hearts?)
 * [ ] HUD showing unlocked sides
+* [ ] reveal instructions in order, after the upgrade was collected
+* [ ] enemies don't shoot a `none` dice

@@ -24,17 +24,21 @@ onready var fire_pos4 = $FirePosition4
 func fire_positions():
   return [fire_pos1, fire_pos2, fire_pos3, fire_pos4]
 
+export(Array, String) var available_sides = []
+
 ### ready #####################################################################
 
 func _ready():
   if not current_side:
-    # current_side = Dice.roll_six_sided()
-    current_side = "four"
+    if available_sides.size() > 1:
+      current_side = available_sides[0]
+    else:
+      current_side = "one"
 
   fire_timer.wait_time = fire_time
   fire_timer.start(fire_time)
 
-  # TODO maybe to hectic/want control over this behavior
+  # TODO maybe too hectic/want control over this behavior
   roll_timer.wait_time = roll_every_t
   roll_timer.start()
 
@@ -81,12 +85,13 @@ func roll():
   rolling_timer.start(rolling_time)
   anim.set_animation("roll")
   # excludes the current_side
-  next_side = Dice.roll_six_sided([current_side])
+  next_side = Dice.roll_six_sided([current_side], available_sides, current_side)
 
 func _on_RollingTimer_timeout():
   rolling = false
   set_side(next_side)
 
 func _on_RollTimer_timeout():
-  # do a roll!
-  roll()
+  if available_sides.size() > 1:
+    # do a roll!
+    roll()

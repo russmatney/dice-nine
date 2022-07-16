@@ -15,7 +15,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
-animation = "four"
+animation = "one"
 playing = true
 
 [node name="FirePosition1" type="Position2D" parent="."]

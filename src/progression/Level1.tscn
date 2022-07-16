@@ -24,18 +24,22 @@ current = true
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 160, -520 )
 current_side = "one"
+available_sides = [ "one" ]
 
 [node name="Enemy2" parent="." instance=ExtResource( 3 )]
 position = Vector2( -520, -424 )
 current_side = "one"
+available_sides = [ "one" ]
 
 [node name="Enemy3" parent="." instance=ExtResource( 3 )]
 position = Vector2( -456, 88 )
 current_side = "one"
+available_sides = [ "one" ]
 
 [node name="Enemy4" parent="." instance=ExtResource( 3 )]
 position = Vector2( -328, -864 )
 current_side = "one"
+available_sides = [ "one" ]
 
 [node name="Upgrade" parent="." instance=ExtResource( 4 )]
 position = Vector2( 584, -632 )

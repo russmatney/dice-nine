@@ -54,8 +54,8 @@ func spawn_player(pos:Position2D = player_start):
   player.position = player_start.position
   get_tree().get_root().call_deferred("add_child", player)
 
-func _on_player_death(player):
-  player_state["respawn_side"] = player.current_side
+func _on_player_death(p):
+  player_state["respawn_side"] = p.current_side
   if player_state["lives"] > 0:
     player_state["lives"] -= 1
     spawn_player()
@@ -75,11 +75,12 @@ func update_player_start(new_start):
 
 var next_level_dict = {
   "Level1": "goto_level2",
-  "Level2": "goto_level1"
+  "Level2": "goto_level3",
+  "Level3": "goto_level1",
   }
 
 func goto_next_level():
+  player_state["respawn_side"] = player.current_side
   player.kill_for_respawn()
   var next_level_fn = next_level_dict[current_level.name]
-  print("next_level_fn:", next_level_fn)
   funcref(Nav, next_level_fn).call_func()

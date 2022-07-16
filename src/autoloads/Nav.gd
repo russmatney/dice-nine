@@ -55,3 +55,7 @@ func goto_level1():
 var level2 = "res://src/progression/Level2.tscn"
 func goto_level2():
   goto_scene(level2)
+
+var level3 = "res://src/progression/Level3.tscn"
+func goto_level3():
+  goto_scene(level3)

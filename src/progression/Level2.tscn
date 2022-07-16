@@ -15,9 +15,6 @@ tile_data = PoolIntArray( -1114138, 0, 65539, -1114137, 0, 131073, -1114136, 0, 
 [node name="PlayerStart" type="Position2D" parent="."]
 position = Vector2( -488, -104 )
 
-[node name="PlayerSpawnTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="Portal" parent="." instance=ExtResource( 5 )]
 position = Vector2( -152, 152 )
 
@@ -43,5 +40,3 @@ available_sides = [ "one" ]
 [node name="Enemy5" parent="." instance=ExtResource( 1 )]
 position = Vector2( 136, -32 )
 available_sides = [ "two" ]
-
-[connection signal="timeout" from="PlayerSpawnTimer" to="." method="_on_PlayerSpawnTimer_timeout"]

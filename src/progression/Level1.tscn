@@ -16,9 +16,6 @@ tile_data = PoolIntArray( -3801149, 0, 8, -3801148, 0, 10, -3801147, 0, 10, -380
 [node name="PlayerStart" type="Position2D" parent="."]
 position = Vector2( 88, -48 )
 
-[node name="PlayerSpawnTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="Portal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 464, -328 )
 
@@ -118,5 +115,3 @@ custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]Right click to roll[/center]"
 text = "Right click to roll"
-
-[connection signal="timeout" from="PlayerSpawnTimer" to="." method="_on_PlayerSpawnTimer_timeout"]

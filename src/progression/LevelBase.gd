@@ -4,14 +4,21 @@ class_name LevelBase
 var enemy_scene = preload("res://src/Enemy.tscn")
 
 onready var player_start = $PlayerStart
+var portals = []
+var upgrades = []
 
 var enemies = []
 var enemy_starts = []
+
+signal enemies_cleared
 
 # ready #######################################################################
 
 func _ready():
   assert(player_start)
+
+  portals = get_tree().get_nodes_in_group("portals")
+  upgrades = get_tree().get_nodes_in_group("upgrades")
 
   ProgressionState.spawn_player(player_start)
 
@@ -24,6 +31,8 @@ func _ready():
     spawn_enemy(e_st)
 
   ProgressionState.set_current_level(self)
+
+  connect("enemies_cleared", self, "_on_enemies_cleared")
 
 ### enemy spawn, death ###########################################################
 
@@ -41,11 +50,23 @@ func _on_enemy_death(en):
   enemies.erase(en)
 
   if enemies.size() <= 0:
-    print("level complete...?")
+    emit_signal("enemies_cleared")
   else:
     print(enemies.size(), " enemies remaining")
 
-# spawn_player #######################################################################
+# _on_enemies_cleared #######################################################################
 
-func _on_PlayerSpawnTimer_timeout():
-  ProgressionState.spawn_player(player_start)
+func _on_enemies_cleared():
+  print("enemies cleared!")
+
+# hide/show portals #######################################################################
+
+func hide_portals():
+  for p in portals:
+    p.visible = false
+    p.disabled = true
+
+func show_portals():
+  for p in portals:
+    p.visible = true
+    p.disabled = false

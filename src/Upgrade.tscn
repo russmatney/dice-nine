@@ -91,14 +91,14 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=15]
 
-[node name="Upgrade" type="Node2D"]
+[node name="Upgrade" type="Node2D" groups=["upgrades"]]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 14 )
 animation = "roll"
-frame = 5
+frame = 4
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

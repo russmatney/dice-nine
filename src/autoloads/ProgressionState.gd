@@ -6,9 +6,6 @@ var pause_popup: PopupPanel
 var gameover_popup: PopupPanel
 
 var player_state = {
-  # "unlocked_sides": ["one", "two"],
-  "unlocked_sides": [],
-  "locked_sides": ["one", "two", "three", "four", "five", "six"],
   "health": 1,
   "lives": 3,
   "respawn_side": "none",
@@ -70,7 +67,8 @@ func _unhandled_input(event):
 
     # TODO do we need to wait?
     # NOTE this allows for life after death
-    spawn_player()
+    if current_level:
+      current_level.reset()
 
   if event.is_action_pressed("pause"):
     if get_tree().paused:
@@ -112,16 +110,23 @@ func spawn_player(pos:Position2D = player_start) -> Node:
     assert(null, "not sure where to put player")
   # get_tree().get_root().call_deferred("add_child", player)
 
-  hud.set_lives(player_state["lives"])
-  hud.set_dice(player_state["unlocked_sides"])
+  update_hud()
 
   return player
 
+func update_hud():
+  hud.set_lives(player_state["lives"])
+  # TODO include clone sides
+  hud.set_dice([player.current_side])
+
 func _on_player_death(p):
-  player_state["respawn_side"] = p.current_side
+  player_state["respawn_side"] = "one"
+
+  # TODO handle cloned-player-swap
+
   if player_state["lives"] > 0:
     player_state["lives"] -= 1
-    spawn_player()
+    current_level.reset()
   else:
     # TODO cheat-death system?
     print("no more lives")
@@ -129,15 +134,25 @@ func _on_player_death(p):
     gameover_popup.song.play()
     gameover_popup.voice.play()
 
+### upgrades ##############################################################
+
+func upgrade_collected(_upgrade):
+  # var next_side = player_state["locked_sides"].pop_front()
+  if player.health < 6:
+    var next_side = Dice.side_for_num(player.health + 1)
+    player_state["respawn_side"] = player.current_side
+    player.current_side = next_side
+    player.set_side()
+  else:
+    # CLONE CITY
+    print("time to clone")
+
+  # TODO show active dice (clones) too
+  hud.set_dice([player.current_side])
 
 ### progress ##############################################################
 
-func unlock_next_side():
-  var next_side = player_state["locked_sides"].pop_front()
-  player_state["unlocked_sides"].append(next_side)
-  # TODO animate
-  hud.set_dice(player_state["unlocked_sides"])
-
+# pah, this is definitely LevelBase logic
 func update_player_start(new_start):
   player_start = new_start
 

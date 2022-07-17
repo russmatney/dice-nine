@@ -19,9 +19,6 @@ var current_side := "none"
 var next_side := ""
 var respawn_side
 
-func unlocked_sides():
-  return ProgressionState.player_state["unlocked_sides"]
-
 ### ready #####################################################################
 
 func _ready():
@@ -36,6 +33,11 @@ func set_side(side=null):
   if side:
     current_side = side
   anim.set_animation(current_side)
+
+  health = Dice.num_for_side(current_side)
+
+  # bad pattern?
+  ProgressionState.update_hud()
 
 ### control #####################################################################
 
@@ -126,23 +128,13 @@ signal rolled
 func roll():
   rolling = true
   roll_timer.start(roll_time)
-  if unlocked_sides().size() > 1:
-    # TODO roll_anim for each case?
-    # TODO or setting a random side while rolling
-    anim.set_animation("roll")
-  # maybe pull this into the progState as well
-  next_side = Dice.roll_six_sided([current_side], unlocked_sides(), current_side)
-
-  if next_side != current_side:
-    emit_signal("roll_start")
+  anim.set_animation("roll")
+  emit_signal("roll_start")
 
 func _on_RollTimer_timeout():
   rolling = false
-  var did_side_change = next_side != current_side
-  set_side(next_side)
-
-  if did_side_change:
-    emit_signal("rolled")
+  set_side() # stop roll animation
+  emit_signal("rolled")
 
 
 ### collisions #####################################################################
@@ -150,9 +142,19 @@ func _on_RollTimer_timeout():
 var health: int
 signal hit
 
-func hit():
+func hit(side):
   emit_signal("hit")
-  health -= 1
+
+  var damage = Dice.num_for_side(side)
+  health -= damage
+  health = max(0, health)
+
+  # get new side using new health
+  current_side = Dice.side_for_num(health)
+  set_side()
+
+  print("setting side: ", current_side)
+
   if health <= 0:
     kill()
 

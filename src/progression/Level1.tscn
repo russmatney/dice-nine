@@ -3,7 +3,7 @@
 [ext_resource path="res://src/TileMaps/3x3TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/progression/Level1.gd" type="Script" id=2]
 [ext_resource path="res://src/progression/EnemyStart.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Upgrade.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/progression/UpgradeStart.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/progression/in-game-message.tres" type="DynamicFont" id=5]
 [ext_resource path="res://src/progression/LevelPortal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/bgs/bg1_sheet.png" type="Texture" id=7]
@@ -32,36 +32,6 @@ position = Vector2( -984, 1848 )
 
 [node name="Portal" parent="." instance=ExtResource( 6 )]
 position = Vector2( -224, -1912 )
-
-[node name="Upgrade" parent="." instance=ExtResource( 4 )]
-position = Vector2( -224, -848 )
-
-[node name="Upgrade4" parent="." instance=ExtResource( 4 )]
-position = Vector2( -160, -840 )
-
-[node name="Upgrade5" parent="." instance=ExtResource( 4 )]
-position = Vector2( -88, -864 )
-
-[node name="Upgrade6" parent="." instance=ExtResource( 4 )]
-position = Vector2( -24, -840 )
-
-[node name="Upgrade7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 48, -860 )
-
-[node name="Upgrade8" parent="." instance=ExtResource( 4 )]
-position = Vector2( 104, -792 )
-
-[node name="Upgrade9" parent="." instance=ExtResource( 4 )]
-position = Vector2( 176, -860 )
-
-[node name="Upgrade10" parent="." instance=ExtResource( 4 )]
-position = Vector2( 216, -912 )
-
-[node name="Upgrade2" parent="." instance=ExtResource( 4 )]
-position = Vector2( -720, 2224 )
-
-[node name="Upgrade3" parent="." instance=ExtResource( 4 )]
-position = Vector2( -1056, 2120 )
 
 [node name="Sounds" parent="." instance=ExtResource( 9 )]
 
@@ -117,10 +87,12 @@ text = "Right click to roll"
 
 [node name="EnemyStart" parent="." instance=ExtResource( 3 )]
 position = Vector2( -168, 1488 )
+initial_side = "three"
 other_sides = [ "two", "three" ]
 
 [node name="EnemyStart3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 56, 1360 )
+initial_side = "two"
 other_sides = [ "two", "three" ]
 
 [node name="EnemyStart4" parent="." instance=ExtResource( 3 )]
@@ -224,12 +196,42 @@ text = "It's Dice-gerous to go alone!"
 fit_content_height = true
 
 [node name="Dicegerous2" type="RichTextLabel" parent="."]
-margin_left = -288.0
-margin_top = -952.0
-margin_right = 320.0
-margin_bottom = -900.0
+margin_left = -296.0
+margin_top = -672.0
+margin_right = 312.0
+margin_bottom = -620.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Take dice.[/center]"
 text = "Take dice."
 fit_content_height = true
+
+[node name="UpgradeStart" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1080, 2104 )
+
+[node name="UpgradeStart2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -752, 2208 )
+
+[node name="UpgradeStart3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -120, -832 )
+
+[node name="UpgradeStart4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 160, -800 )
+
+[node name="UpgradeStart5" parent="." instance=ExtResource( 4 )]
+position = Vector2( -32, -784 )
+
+[node name="UpgradeStart6" parent="." instance=ExtResource( 4 )]
+position = Vector2( -192, -808 )
+
+[node name="UpgradeStart7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 232, -824 )
+
+[node name="UpgradeStart8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 64, -744 )
+
+[node name="UpgradeStart9" parent="." instance=ExtResource( 4 )]
+position = Vector2( -152, -880 )
+
+[node name="UpgradeStart10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 136, -896 )

@@ -53,6 +53,8 @@ func set_side(side=null):
     current_side = side
   anim.set_animation(current_side)
 
+  health = Dice.num_for_side(current_side)
+
 ### physics_process #####################################################################
 
 var roll_spin_force := 3000
@@ -96,25 +98,42 @@ func roll():
   rolling = true
   rolling_timer.start(rolling_time)
   anim.set_animation("roll")
+
   # excludes the current_side
-  next_side = Dice.roll_six_sided([current_side], available_sides, current_side)
+  # next_side = Dice.roll_six_sided([current_side], available_sides, current_side)
+  next_side = current_side # disable changing sides on roll
 
 func _on_RollingTimer_timeout():
   rolling = false
-  set_side(next_side)
+
+  # no need to set new roll
+  # set_side(next_side)
+
+  # stop the roll animation
+  set_side()
 
 func _on_RollTimer_timeout():
-  if available_sides.size() > 1:
-    # do a roll!
-    roll()
+  # if available_sides.size() > 1:
+  #   # do a roll!
+  #   roll()
+
+  # allow always roll, for fun
+  roll()
 
 ### collisions #####################################################################
 
 signal hit
 
-func hit():
+func hit(side):
   emit_signal("hit")
-  health -= 1
+  var damage = Dice.num_for_side(side)
+  health -= damage
+  health = max(0, health)
+
+  # get new side using new health
+  current_side = Dice.side_for_num(health)
+  set_side()
+
   if health <= 0:
     kill()
 

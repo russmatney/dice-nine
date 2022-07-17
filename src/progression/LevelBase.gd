@@ -1,6 +1,7 @@
 extends Node2D
 class_name LevelBase
 
+var upgrade_scene = preload("res://src/Upgrade.tscn")
 var enemy_scene = preload("res://src/Enemy.tscn")
 var hud_scene = preload("res://src/ui/HUD.tscn")
 var hud: CanvasLayer
@@ -11,6 +12,7 @@ onready var player_start = $PlayerStart
 var player
 var portals = []
 var upgrades = []
+var upgrade_starts = []
 
 var enemies = []
 var enemy_starts = []
@@ -25,6 +27,7 @@ func _ready():
 
   portals = get_tree().get_nodes_in_group("portals")
   upgrades = get_tree().get_nodes_in_group("upgrades")
+  upgrade_starts = get_tree().get_nodes_in_group("upgrade_starts")
   enemies = get_tree().get_nodes_in_group("enemies")
   enemy_starts = get_tree().get_nodes_in_group("enemy_starts")
 
@@ -34,7 +37,7 @@ func _ready():
 
       hud.connect("ready", self, "setup_level")
 
-  print("level ready")
+  connect("enemies_cleared", self, "_on_enemies_cleared")
 
 func setup_level():
   ProgressionState.ensure_hud()
@@ -42,21 +45,30 @@ func setup_level():
   ProgressionState.ensure_gameover()
   ProgressionState.set_current_level(self)
 
-  for up in upgrades:
-    up.connect("collected", self, "_on_upgrade_collected", [up])
-
   player = ProgressionState.spawn_player(player_start)
   player.connect("roll_start", self, "_on_player_roll_start")
   player.connect("rolled", self, "_on_player_rolled")
   player.connect("death", self, "_on_player_death", [player])
 
-  for en in enemies:
-    en.connect("death", self, "_on_enemy_death", [en])
+  for u_st in upgrade_starts:
+    spawn_upgrade(u_st)
 
   for e_st in enemy_starts:
     spawn_enemy(e_st)
 
-  connect("enemies_cleared", self, "_on_enemies_cleared")
+func reset():
+  # remove left over upgrades
+  for up in upgrades:
+    if up and is_instance_valid(up):
+      up.queue_free()
+
+  # remove left over enemies
+  for en in enemies:
+    if en and is_instance_valid(en):
+      en.queue_free()
+
+  # reset level after player death
+  setup_level()
 
 ### enemy spawn, death ###########################################################
 
@@ -90,10 +102,25 @@ func _on_enemy_death(en):
 func _on_enemies_cleared():
   print("enemies cleared!")
 
+# upgrades #######################################################################
+
+func spawn_upgrade(pos:Position2D):
+  var upgrade = upgrade_scene.instance()
+  upgrades.append(upgrade)
+  upgrade.connect("collected", self, "_on_upgrade_collected", [upgrade])
+  upgrade.position = pos.position
+  if Nav.current_scene:
+    # prefer to add to the current scene, which gets cleaned up
+    Nav.current_scene.call_deferred("add_child", upgrade)
+  else:
+    get_tree().get_root().call_deferred("add_child", upgrade)
+
 # _on_upgrade_collected #######################################################################
 
-func _on_upgrade_collected(_upgrade):
+func _on_upgrade_collected(upgrade):
   print("upgrade collected!")
+  ProgressionState.upgrade_collected(upgrade)
+  # TODO announcement via HUD/Notifs/Banner
 
 # _on_player_death #######################################################################
 

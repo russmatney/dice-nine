@@ -79,15 +79,12 @@ CLOSED: [2022-07-17 Sun 00:11]
 CLOSED: [2022-07-17 Sun 00:11]
 * [X] handle (game over)
 CLOSED: [2022-07-17 Sun 08:02]
-* [ ] in-level music
-* [ ] fix broken 'death' sound
-seems to only fire the first time?
-* [ ] bump into wall sound
-* [ ] add texture to bg image
 * more interesting
-** [ ] create dice-nine boss art
-** [ ] upgrades come to you when you're close enough
-** [ ] upgrades beyond 6 mean - extra player!
+** [X] create dice-nine boss art
+CLOSED: [2022-07-17 Sun 08:49]
+** [ ] bullet sides subtract from the enemy score
+** [ ] rolling changes your 'gun'
+guns are just sets of sides (pips)
 ** [ ] more enemies
 *** mini-boss
 larger, rolls often
@@ -102,6 +99,8 @@ disappears around the level
 *** firing at more interesting intervals
 maybe based on their number?
 *** not firing so lamely in all directions
+** [ ] upgrades come to you when you're close enough
+** [ ] upgrades beyond 6 mean - extra player!
 ** [ ] clone levels
 upgrades grant you a clone
 ** [ ] escort levels
@@ -109,6 +108,13 @@ guide presidice safely to the prom
 ** [ ] progression - rest of the upgrades, then clone-upgrades
 play until you have 6, then you've unlocked the escort story line
 ** [ ] consider restoring the wall-collisions
+* [ ] respawn upgrades and enemies after death
+* [ ] in-level music
+* [ ] fix broken 'death' sound
+seems to only fire the first time?
+* [ ] upgrade sound
+* [ ] bump into wall sound
+* [ ] add texture to bg image
 * [ ] highlight the upgrades more
 maybe just text that flashes/dances around it?
 ** shiny-glowy-directions to off/onscreen upgrade

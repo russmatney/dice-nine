@@ -6,9 +6,8 @@ signal collected
 
 func _on_Area2D_body_entered(body:Node):
   if body.is_in_group("player"):
-    ProgressionState.unlock_next_side()
+    # we depend on the levelbase listening to this signal
     emit_signal("collected")
-    # TODO announcement via HUD/Notifs/Banner
     kill() # remove from the screen
 
 

@@ -36,16 +36,7 @@ func _ready():
 
 func set_lives(num: int):
   lives = num
-  var anim = "none"
-  match num:
-    0: anim = "none"
-    1: anim = "one"
-    2: anim = "two"
-    3: anim = "three"
-    4: anim = "four"
-    5: anim = "five"
-    6: anim = "six"
-
+  var anim = Dice.side_for_num(lives)
   if lives_anim:
     lives_anim.set_animation(anim)
 

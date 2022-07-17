@@ -77,9 +77,15 @@ CLOSED: [2022-07-16 Sat 18:16]
 CLOSED: [2022-07-17 Sun 00:11]
 * [X] win screen
 CLOSED: [2022-07-17 Sun 00:11]
+* [X] handle (game over)
+CLOSED: [2022-07-17 Sun 08:02]
 * [ ] in-level music
-* [ ] handle (game over)
+* [ ] fix broken 'death' sound
+seems to only fire the first time?
+* [ ] bump into wall sound
+* [ ] add texture to bg image
 * more interesting
+** [ ] create dice-nine boss art
 ** [ ] upgrades come to you when you're close enough
 ** [ ] upgrades beyond 6 mean - extra player!
 ** [ ] more enemies

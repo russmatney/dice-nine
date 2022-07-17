@@ -60,7 +60,8 @@ CLOSED: [2022-07-16 Sat 17:41]
 ** SKIP controls
 CLOSED: [2022-07-16 Sat 19:48]
 jazz music
-** [ ] pause menu
+** [X] pause menu
+CLOSED: [2022-07-16 Sat 20:23]
 jazz music
 ** [ ] credits
 * [ ] sounds, music
@@ -71,6 +72,7 @@ CLOSED: [2022-07-16 Sat 19:48]
 CLOSED: [2022-07-16 Sat 19:48]
 ** [X] main menu song
 CLOSED: [2022-07-16 Sat 18:16]
+** [ ] in-level music
 * [ ] upgrades beyond 6 mean - extra player!
 * more interesting
 ** [ ] more enemies

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/Born2bSportyV2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/ui/MainMenuTitleText.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/songs/Late Night Radio.mp3" type="AudioStream" id=3]
+[ext_resource path="res://src/ui/PausePopup.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.168627, 0.0588235, 0.329412, 0.513726 )
@@ -21,6 +23,7 @@ visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 3 )
+script = ExtResource( 4 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 10.0
@@ -114,3 +117,7 @@ text = "Controls:
 - Left click to fire"
 fit_content_height = true
 scroll_active = false
+
+[node name="PauseSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -6.0

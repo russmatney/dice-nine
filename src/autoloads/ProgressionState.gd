@@ -62,10 +62,12 @@ func _unhandled_input(event):
     var t = get_tree()
     if t.paused:
       pause_popup.hide()
+      pause_popup.pause_song()
       t.paused = false
     else:
       t.paused = true
       pause_popup.show()
+      pause_popup.resume_song()
 
 
 ### spawn, death, respawn ####################################################

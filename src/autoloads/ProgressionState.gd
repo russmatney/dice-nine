@@ -8,8 +8,8 @@ var gameover_popup: PopupPanel
 var player_state = {
   "health": 1,
   "lives": 3,
-  "respawn_side": "none",
-  "clone_sides": [],
+  "respawn_side": "one",
+  "clone_sides": ["three"],
 }
 var initial_player_state
 
@@ -150,18 +150,21 @@ func spawn_clone():
 func update_hud():
   hud.set_lives(player_state["lives"])
 
-  var hud_dice = []
   if player and is_instance_valid(player):
-    hud_dice.append(player.current_side)
-  for c in clones:
-    if c and is_instance_valid(c):
-      hud_dice.append(c.current_side)
-  hud.set_dice(hud_dice)
+    var clone_sides = []
+    for c in clones:
+      if c and is_instance_valid(c):
+        clone_sides.append(c.current_side)
+
+    print("setting hud dice: ", player.current_side, " - ", clone_sides)
+    hud.set_dice(player.current_side, clone_sides)
 
 func _on_player_death(p):
   if p.is_clone:
     print("clone death!")
     clones.erase(p)
+    # make sure the player has the camera
+    p.camera.current = true
   elif clones.size() > 0:
     # promote clone
     var new_p = clones.pop_front()
@@ -191,13 +194,17 @@ func _on_player_death(p):
 func upgrade_collected(_upgrade):
   # var next_side = player_state["locked_sides"].pop_front()
   if player.health < 6:
+    print("player health less than six, incrementing")
     var next_side = Dice.side_for_num(player.health + 1)
     player_state["respawn_side"] = player.current_side
     player.set_side(next_side)
   else:
+    print("player health six or more, looking for clone to heal")
     var upgraded_clone = false
     for c in clones:
+      print("clone side: ", c.current_side, " health: ", c.health)
       if c.current_side != "six":
+        print("found non-six clone ", c.current_side, " ", c)
         var next_side = Dice.side_for_num(c.health + 1)
         player_state["clone_sides"].erase(c.current_side)
         player_state["clone_sides"].append(next_side)
@@ -206,9 +213,8 @@ func upgrade_collected(_upgrade):
         break
 
     if not upgraded_clone:
+      print("no non-six clone, adding a new one")
       # create a new clone
-      # CLONE CITY
-      print("time to clone")
       var c = spawn_clone()
       player_state["clone_sides"].append(c.current_side)
 

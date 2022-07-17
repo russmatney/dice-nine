@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Upgrade.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/progression/EnemyStart.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/progression/UpgradeStart.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/TileMaps/2x2TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/progression/Level2.gd" type="Script" id=4]
 [ext_resource path="res://src/progression/LevelPortal.tscn" type="PackedScene" id=5]
@@ -26,29 +26,6 @@ position = Vector2( -488, -104 )
 [node name="Portal" parent="." instance=ExtResource( 5 )]
 position = Vector2( -152, 152 )
 
-[node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( -264, -256 )
-available_sides = [ "one" ]
-
-[node name="Enemy2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -200, -96 )
-available_sides = [ "one" ]
-
-[node name="Enemy3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 320, -160 )
-available_sides = [ "one" ]
-
-[node name="Enemy4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 264, 72 )
-available_sides = [ "one" ]
-
-[node name="Enemy5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 136, -32 )
-available_sides = [ "two" ]
-
-[node name="Upgrade" parent="." instance=ExtResource( 2 )]
-position = Vector2( 736, -352 )
-
 [node name="RollDirections" type="RichTextLabel" parent="."]
 margin_left = 648.0
 margin_top = -256.0
@@ -66,3 +43,44 @@ position = Vector2( -344, 336 )
 position = Vector2( 800, 208 )
 
 [node name="Sounds" parent="." instance=ExtResource( 9 )]
+
+[node name="UpgradeStart" parent="." instance=ExtResource( 2 )]
+position = Vector2( 712, -360 )
+
+[node name="UpgradeStart2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 784, 176 )
+
+[node name="UpgradeStart3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -480, 248 )
+
+[node name="EnemyStart" parent="." instance=ExtResource( 1 )]
+position = Vector2( -160, -72 )
+initial_side = "three"
+
+[node name="EnemyStart2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 144, 0 )
+initial_side = "three"
+
+[node name="EnemyStart3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 336, -104 )
+initial_side = "three"
+
+[node name="EnemyStart4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, 112 )
+initial_side = "three"
+
+[node name="EnemyStart5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 168 )
+initial_side = "five"
+
+[node name="EnemyStart6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 272, 560 )
+initial_side = "three"
+
+[node name="EnemyStart7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 408 )
+initial_side = "five"
+
+[node name="EnemyStart8" parent="." instance=ExtResource( 1 )]
+position = Vector2( -144, 496 )
+initial_side = "three"

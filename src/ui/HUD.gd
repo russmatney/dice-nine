@@ -3,34 +3,18 @@ extends CanvasLayer
 var lives_anim: AnimatedSprite
 var lives: int = 0
 
-var dice := []
-var dice_label
-var dice1
-var dice2
-var dice3
-var dice4
-var dice5
-var dice6
+onready var dice_scene = preload("res://src/ui/HUDDice.tscn")
 
 ### ready #####################################################################
 
 func _ready():
   lives_anim = find_node("LivesAnim")
 
-  dice_label = find_node("DiceLabel")
-  dice1 = find_node("Dice1")
-  dice2 = find_node("Dice2")
-  dice3 = find_node("Dice3")
-  dice4 = find_node("Dice4")
-  dice5 = find_node("Dice5")
-  dice6 = find_node("Dice6")
+  player_dice = find_node("Player")
+  dice_container = find_node("DiceContainer")
 
   if lives:
     set_lives(lives)
-
-  hide_dice()
-  if dice.size() > 0:
-    set_dice()
 
 ### lives #####################################################################
 
@@ -42,28 +26,25 @@ func set_lives(num: int):
 
 ### dice #####################################################################
 
-func hide_dice():
-  dice1.visible = false
-  dice2.visible = false
-  dice3.visible = false
-  dice4.visible = false
-  dice5.visible = false
-  dice6.visible = false
-  dice_label.visible = false
+var dice_offset_x = 32
+var player_dice
+var clone_dice = []
+var dice_container
 
-func set_dice(d: Array = dice):
-  dice = d
-  # TODO animate a new dice's entrance
-  if dice.size() > 0:
-    # TODO maybe ignore if dice is "none"
-    if dice_label:
-      dice_label.visible = true
-  if dice1:
-    for d in dice:
-      match d:
-        "one": dice1.visible = true
-        "two": dice2.visible = true
-        "three": dice3.visible = true
-        "four": dice4.visible = true
-        "five": dice5.visible = true
-        "six": dice6.visible = true
+func set_dice(player_side, clone_sides = []):
+  player_dice.set_animation(player_side)
+
+  # clear clones
+  for d in clone_dice:
+    d.queue_free()
+
+  if dice_container:
+    # reset
+    clone_dice = []
+    var i = 1
+    for side in clone_sides:
+      var clone_die = dice_scene.instance()
+      clone_die.set_animation(side)
+      clone_die.position = player_dice.transform.origin + Vector2(dice_offset_x * i, 0)
+      dice_container.add_child(clone_die)
+      i += 1

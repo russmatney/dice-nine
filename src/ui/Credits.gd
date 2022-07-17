@@ -74,3 +74,7 @@ var credits = [
     "Especially Duaa, Greg, and Josh!",
     "Thank you!"],
 ]
+
+
+func _on_Button_pressed():
+  Nav.goto_main_menu()

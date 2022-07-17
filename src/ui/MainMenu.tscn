@@ -306,27 +306,10 @@ margin_top = 0.0
 margin_right = 164.0
 margin_bottom = 36.0
 
-[node name="LevelSelect" parent="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
-visible = false
-margin_top = 40.0
-margin_right = 176.0
-margin_bottom = 76.0
-disabled = true
-text = "Select Level"
-
-[node name="Controls" parent="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
-visible = false
-margin_top = 40.0
-margin_right = 164.0
-margin_bottom = 76.0
-disabled = true
-text = "Controls"
-
 [node name="Credits" parent="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 40.0
 margin_right = 164.0
 margin_bottom = 76.0
-disabled = true
 text = "Credits"
 
 [node name="Content" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
@@ -376,7 +359,6 @@ position = Vector2( 88.0001, 512 )
 scale = Vector2( 10, 10 )
 frames = ExtResource( 5 )
 animation = "roll"
-frame = 4
 speed_scale = 0.1
 playing = true
 
@@ -385,7 +367,7 @@ position = Vector2( 88, 88.0001 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 15 )
 animation = "roll"
-frame = 3
+frame = 5
 speed_scale = 0.1
 playing = true
 
@@ -394,7 +376,6 @@ position = Vector2( 936, 88 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 16 )
 animation = "roll"
-frame = 4
 speed_scale = 0.1
 playing = true
 
@@ -403,7 +384,7 @@ position = Vector2( 936, 512 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 17 )
 animation = "roll"
-frame = 3
+frame = 5
 speed_scale = 0.1
 playing = true
 
@@ -429,6 +410,4 @@ volume_db = -6.0
 autoplay = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/VBoxContainer/LevelSelect" to="." method="_on_LevelSelect_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/VBoxContainer/Controls" to="." method="_on_Controls_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]

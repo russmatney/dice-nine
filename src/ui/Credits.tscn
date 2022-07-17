@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
+[ext_resource path="res://src/ui/MainMenuButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/dice-roll-rainbow_sheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/songs/Late Night Radio.mp3" type="AudioStream" id=3]
 [ext_resource path="res://src/ui/MainMenuTitleText.tres" type="DynamicFont" id=4]
@@ -274,11 +275,10 @@ frames = ExtResource( 7 )
 animation = "six"
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="."]
-position = Vector2( 88.0001, 512 )
+position = Vector2( 88, 424 )
 scale = Vector2( 10, 10 )
 frames = ExtResource( 7 )
 animation = "roll"
-frame = 4
 speed_scale = 0.1
 playing = true
 
@@ -287,7 +287,7 @@ position = Vector2( 88, 88.0001 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 16 )
 animation = "roll"
-frame = 3
+frame = 5
 speed_scale = 0.1
 playing = true
 
@@ -296,7 +296,6 @@ position = Vector2( 936, 88 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 17 )
 animation = "roll"
-frame = 4
 speed_scale = 0.1
 playing = true
 
@@ -305,16 +304,16 @@ position = Vector2( 936, 512 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 18 )
 animation = "roll"
-frame = 3
+frame = 5
 speed_scale = 0.1
 playing = true
 
 [node name="AnimatedSprite11" type="AnimatedSprite" parent="."]
-position = Vector2( 88, 297 )
+position = Vector2( 88, 256 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 18 )
 animation = "roll"
-frame = 2
+frame = 5
 speed_scale = 0.1
 playing = true
 
@@ -338,3 +337,12 @@ texture = ExtResource( 5 )
 stream = ExtResource( 3 )
 volume_db = -6.0
 autoplay = true
+
+[node name="Button" parent="." instance=ExtResource( 1 )]
+margin_left = 8.0
+margin_top = 552.0
+margin_right = 168.0
+margin_bottom = 588.0
+text = "Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -43,17 +43,9 @@ var main_menu = "res://src/ui/MainMenu.tscn"
 func goto_main_menu():
   goto_scene(main_menu)
 
-var controls = "res://src/ui/Controls.tscn"
-func goto_controls():
-  goto_scene(controls)
-
 var credits = "res://src/ui/Credits.tscn"
 func goto_credits():
   goto_scene(credits)
-
-# var level_select = "res://src/ui/LevelSelect.tscn"
-# func goto_level_select():
-#   goto_scene(level_select)
 
 ### demos ##########################################################
 
@@ -80,11 +72,10 @@ var level3 = "res://src/progression/Level3.tscn"
 func goto_level3():
   goto_scene(level3)
 
-
 ### general ##################################################################
 
 func win():
-  goto_main_menu()
+  goto_credits()
 
 func start():
   goto_level1()

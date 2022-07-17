@@ -47,7 +47,8 @@ CLOSED: [2022-07-16 Sat 15:11]
 dark env
 light points added
 use colors from pallette
-* [ ] basic wrappers
+* [X] basic wrappers
+CLOSED: [2022-07-16 Sat 22:43]
 ** [X] title/main menu
 CLOSED: [2022-07-16 Sat 17:41]
 ** SKIP level select
@@ -63,8 +64,8 @@ jazz music
 ** [X] pause menu
 CLOSED: [2022-07-16 Sat 20:23]
 jazz music
-** [ ] credits
-* [ ] sounds, music
+* [X] sounds, music
+CLOSED: [2022-07-16 Sat 22:43]
 jazz music on menus
 ** [X] firing bleep-pew
 CLOSED: [2022-07-16 Sat 19:48]
@@ -72,9 +73,11 @@ CLOSED: [2022-07-16 Sat 19:48]
 CLOSED: [2022-07-16 Sat 19:48]
 ** [X] main menu song
 CLOSED: [2022-07-16 Sat 18:16]
-** [ ] in-level music
-* [ ] upgrades beyond 6 mean - extra player!
+* [ ] credits
+* [ ] in-level music
 * more interesting
+** [ ] upgrades come to you when you're close enough
+** [ ] upgrades beyond 6 mean - extra player!
 ** [ ] more enemies
 *** mini-boss
 larger, rolls often
@@ -84,16 +87,18 @@ shoots at-you
 *** huge 100 boss
 subtract from his score while fighting him
 disappears around the level
-*** fires-while-rotating
+*** fires-while-spinning
 *** fires-at-you
 *** firing at more interesting intervals
 maybe based on their number?
+*** not firing so lamely in all directions
 ** [ ] clone levels
 upgrades grant you a clone
 ** [ ] escort levels
 guide presidice safely to the prom
 ** [ ] progression - rest of the upgrades, then clone-upgrades
 play until you have 6, then you've unlocked the escort story line
+** [ ] consider restoring the wall-collisions
 * [ ] highlight the upgrades more
 maybe just text that flashes/dances around it?
 ** shiny-glowy-directions to off/onscreen upgrade

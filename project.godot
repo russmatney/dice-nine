@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="dice-nine"
-run/main_scene="res://src/progression/Level1.tscn"
+run/main_scene="res://src/ui/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

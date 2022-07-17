@@ -57,7 +57,7 @@ margin_bottom = 184.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]WASD or Arrows to move[/center]"
-text = "[center]WASD or Arrows to move[/center]"
+text = "WASD or Arrows to move"
 
 [node name="MoveArrow" type="RichTextLabel" parent="."]
 margin_left = -8.0
@@ -68,7 +68,7 @@ rect_rotation = 44.9999
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]<-[/center]"
-text = "[center]<-[/center]"
+text = "<-"
 
 [node name="MoveArrow2" type="RichTextLabel" parent="."]
 margin_left = -376.0
@@ -79,7 +79,7 @@ rect_rotation = 120.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]<-[/center]"
-text = "[center]<-[/center]"
+text = "<-"
 
 [node name="UpgradeArrow" type="RichTextLabel" parent="."]
 margin_left = 48.0
@@ -90,7 +90,7 @@ rect_rotation = 195.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]<-[/center]"
-text = "[center]<-[/center]"
+text = "<-"
 
 [node name="PortalArrow" type="RichTextLabel" parent="."]
 margin_left = 296.0
@@ -101,7 +101,7 @@ rect_rotation = 195.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]<-[/center]"
-text = "[center]<-[/center]"
+text = "<-"
 
 [node name="FireDirections" type="RichTextLabel" parent="."]
 margin_left = -600.0
@@ -111,7 +111,7 @@ margin_bottom = -664.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]Left click to fire[/center]"
-text = "[center]Left click to fire[/center]"
+text = "Left click to fire"
 
 [node name="DodgeDirections" type="RichTextLabel" parent="."]
 margin_left = -424.0
@@ -121,7 +121,7 @@ margin_bottom = -432.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]Dodge the Dice![/center]"
-text = "[center]Dodge the Dice![/center]"
+text = "Dodge the Dice!"
 
 [node name="RollDirections" type="RichTextLabel" parent="."]
 margin_left = 88.0
@@ -131,7 +131,7 @@ margin_bottom = -744.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]Right click to roll[/center]"
-text = "[center]Right click to roll[/center]"
+text = "Right click to roll"
 
 [node name="YellowLight" parent="." instance=ExtResource( 8 )]
 

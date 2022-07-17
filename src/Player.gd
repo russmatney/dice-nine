@@ -103,6 +103,12 @@ func _physics_process(delta):
 signal fired
 onready var sounds = $Sounds
 
+# TODO nicer helper for things like this
+func play_fire_sound():
+  var sound = [sounds.player_fire_sound, sounds.player_fire_sound2][randi() % 2]
+  sound.play()
+
+
 func fire():
   var new_bullet = bullet.instance()
 
@@ -120,7 +126,7 @@ func fire():
   else:
     get_tree().get_root().call_deferred("add_child", new_bullet)
 
-  sounds.player_fire_sound.play()
+  play_fire_sound()
   emit_signal("fired")
 
 ### roll ####################################################################
@@ -146,6 +152,9 @@ func _on_RollTimer_timeout():
 var health: int
 signal hit
 
+func play_hit_sound():
+  sounds.player_hit.play()
+
 func hit(side):
   emit_signal("hit")
 
@@ -161,6 +170,9 @@ func hit(side):
 
   if health <= 0:
     kill()
+  else:
+    play_hit_sound()
+
 
 ### death #####################################################################
 

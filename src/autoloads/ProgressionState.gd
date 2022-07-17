@@ -188,7 +188,9 @@ func _on_player_death(p):
       gameover_popup.voice.play()
 
   # make sure the player has the camera
-  player.camera.current = true
+  if player and is_instance_valid(player):
+    if player.camera and is_instance_valid(player.camera):
+      player.camera.current = true
   update_hud()
 
 ### upgrades ##############################################################

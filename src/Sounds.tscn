@@ -1,22 +1,29 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Sounds.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/handleCoins.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/sounds/error_005.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/sounds/191635__dwsd__jhd-prc-5.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/sounds/select_004.ogg" type="AudioStream" id=5]
-[ext_resource path="res://assets/sounds/minimize_006.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/select_005.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/sounds/maximize_006.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/glass_002.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/glass_001.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/sounds/191642__dwsd__jhd-vox-cityskyish.wav" type="AudioStream" id=10]
 
 [node name="Sounds" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="PlayerDeathSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 10 )
+volume_db = -6.0
+
+[node name="PlayerFireSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 volume_db = -6.0
 
 [node name="PlayerFireSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 8 )
 volume_db = -6.0
 
 [node name="PlayerRollSound" type="AudioStreamPlayer" parent="."]
@@ -24,13 +31,25 @@ stream = ExtResource( 2 )
 volume_db = -6.0
 
 [node name="EnemyDieSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 4 )
 volume_db = -6.0
 
 [node name="EnemiesClearedSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = -6.0
 
 [node name="PortalUsed" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -6.0
+
+[node name="EnemyHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -6.0
+
+[node name="EnemyHit2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -6.0
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 volume_db = -6.0

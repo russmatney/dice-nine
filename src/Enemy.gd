@@ -4,6 +4,7 @@ var bullet_speed = 500
 var bullet = preload("res://src/Bullet.tscn")
 
 onready var anim = $AnimatedSprite
+onready var sounds = $Sounds
 
 export(bool) var disabled = false
 
@@ -124,6 +125,10 @@ func _on_RollTimer_timeout():
 
 signal hit
 
+func play_hit_sound():
+  var sound = [sounds.enemy_hit_sound, sounds.enemy_hit_sound2][randi() % 2]
+  sound.play()
+
 func hit(side):
   emit_signal("hit")
   var damage = Dice.num_for_side(side)
@@ -136,6 +141,9 @@ func hit(side):
 
   if health <= 0:
     kill()
+  else:
+    play_hit_sound()
+
 
 ### death #####################################################################
 

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/dieShuffle2.ogg-ff12c01405b9e71398b4d7c1168994e9.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/jingles_NES00.ogg-88595bed11ae8fe8b3d0e9e9c2ae0f6e.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

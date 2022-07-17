@@ -1,0 +1,340 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/dice-roll-rainbow_sheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/songs/Late Night Radio.mp3" type="AudioStream" id=3]
+[ext_resource path="res://src/ui/MainMenuTitleText.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/GMTK Game Jam 2022/GMTK Game Jam 2022 Logos/Jam Logo 2022.png" type="Texture" id=5]
+[ext_resource path="res://assets/GMTK Game Jam 2022/Theme Logo/2022-Theme-Image.png" type="Texture" id=6]
+[ext_resource path="res://src/ui/mainmenu_spriteframes.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://src/ui/Credits.gd" type="Script" id=8]
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "four",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "three",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "one",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "five",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "six",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 2 ), SubResource( 3 ), SubResource( 7 ), SubResource( 6 ), SubResource( 5 ) ],
+"loop": true,
+"name": "roll",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "two",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "four",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "three",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "one",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "five",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "six",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 4 ), SubResource( 7 ), SubResource( 2 ), SubResource( 5 ), SubResource( 3 ) ],
+"loop": true,
+"name": "roll",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "two",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "four",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "three",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "one",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "five",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "six",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 2 ), SubResource( 4 ), SubResource( 6 ), SubResource( 5 ), SubResource( 7 ) ],
+"loop": true,
+"name": "roll",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "two",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+} ]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="Bg" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.168627, 0.0588235, 0.329412, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 225.0
+margin_right = 799.0
+margin_bottom = 600.0
+
+[node name="CreditsScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+margin_right = 574.0
+margin_bottom = 600.0
+scroll_horizontal_enabled = false
+
+[node name="CreditsLinesContainer" type="VBoxContainer" parent="MarginContainer/CreditsScrollContainer"]
+margin_right = 574.0
+margin_bottom = 283.0
+size_flags_horizontal = 3
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/CreditsScrollContainer/CreditsLinesContainer"]
+margin_right = 574.0
+margin_bottom = 129.0
+rect_min_size = Vector2( 450, 0 )
+custom_colors/default_color = Color( 1, 0.309804, 0.411765, 1 )
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center]DICE-NINE[/center]"
+text = "DICE-NINE"
+fit_content_height = true
+scroll_active = false
+
+[node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/CreditsScrollContainer/CreditsLinesContainer"]
+margin_top = 133.0
+margin_right = 574.0
+margin_bottom = 283.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CreditsScrollContainer/CreditsLinesContainer/CenterContainer3"]
+margin_left = 287.0
+margin_right = 287.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 150 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MarginContainer/CreditsScrollContainer/CreditsLinesContainer/CenterContainer3/HBoxContainer"]
+position = Vector2( -200, 65 )
+scale = Vector2( 5, 5 )
+frames = ExtResource( 7 )
+animation = "one"
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="MarginContainer/CreditsScrollContainer/CreditsLinesContainer/CenterContainer3/HBoxContainer"]
+position = Vector2( -120, 65 )
+scale = Vector2( 5, 5 )
+frames = ExtResource( 7 )
+animation = "two"
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="MarginContainer/CreditsScrollContainer/CreditsLinesContainer/CenterContainer3/HBoxContainer"]
+position = Vector2( -39.9999, 65 )
+scale = Vector2( 5, 5 )
+frames = ExtResource( 7 )
+animation = "three"
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="MarginContainer/CreditsScrollContainer/CreditsLinesContainer/CenterContainer3/HBoxContainer"]
+position = Vector2( 40.0001, 65 )
+scale = Vector2( 5, 5 )
+frames = ExtResource( 7 )
+animation = "four"
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="MarginContainer/CreditsScrollContainer/CreditsLinesContainer/CenterContainer3/HBoxContainer"]
+position = Vector2( 120, 65 )
+scale = Vector2( 5, 5 )
+frames = ExtResource( 7 )
+animation = "five"
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="MarginContainer/CreditsScrollContainer/CreditsLinesContainer/CenterContainer3/HBoxContainer"]
+position = Vector2( 200, 65 )
+scale = Vector2( 5, 5 )
+frames = ExtResource( 7 )
+animation = "six"
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="."]
+position = Vector2( 88.0001, 512 )
+scale = Vector2( 10, 10 )
+frames = ExtResource( 7 )
+animation = "roll"
+frame = 4
+speed_scale = 0.1
+playing = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="."]
+position = Vector2( 88, 88.0001 )
+scale = Vector2( 10, 10 )
+frames = SubResource( 16 )
+animation = "roll"
+frame = 3
+speed_scale = 0.1
+playing = true
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="."]
+position = Vector2( 936, 88 )
+scale = Vector2( 10, 10 )
+frames = SubResource( 17 )
+animation = "roll"
+frame = 4
+speed_scale = 0.1
+playing = true
+
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="."]
+position = Vector2( 936, 512 )
+scale = Vector2( 10, 10 )
+frames = SubResource( 18 )
+animation = "roll"
+frame = 3
+speed_scale = 0.1
+playing = true
+
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="."]
+position = Vector2( 88, 297 )
+scale = Vector2( 10, 10 )
+frames = SubResource( 18 )
+animation = "roll"
+frame = 2
+speed_scale = 0.1
+playing = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 835.0
+margin_top = 168.0
+margin_right = 5710.0
+margin_bottom = 2910.0
+rect_scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 6 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 835.0
+margin_top = 293.0
+margin_right = 2755.0
+margin_bottom = 1346.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="MenuSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -6.0
+autoplay = true

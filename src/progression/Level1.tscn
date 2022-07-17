@@ -46,44 +46,34 @@ bbcode_text = "[center]WASD or Arrows to move[/center]"
 text = "WASD or Arrows to move"
 
 [node name="UpgradeNote" type="RichTextLabel" parent="."]
-margin_left = -1320.0
-margin_top = 2320.0
-margin_right = -560.0
-margin_bottom = 2408.0
+margin_left = -1336.0
+margin_top = 2280.0
+margin_right = -576.0
+margin_bottom = 2368.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
-bbcode_text = "[center]Upgrades give you more dice[/center]"
-text = "Upgrades give you more dice"
+bbcode_text = "[center]Collect the upgrades![/center]"
+text = "Collect the upgrades!"
 
 [node name="FireDirections" type="RichTextLabel" parent="."]
-margin_left = -88.0
-margin_top = 1896.0
-margin_right = 376.0
-margin_bottom = 1976.0
+margin_left = -224.0
+margin_top = 1888.0
+margin_right = 240.0
+margin_bottom = 1968.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]Mouse to aim[/center]"
 text = "Mouse to aim"
 
 [node name="FireDirections2" type="RichTextLabel" parent="."]
-margin_left = 8.0
-margin_top = 1584.0
-margin_right = 472.0
-margin_bottom = 1664.0
+margin_left = -152.0
+margin_top = 1784.0
+margin_right = 312.0
+margin_bottom = 1864.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]Left click to fire[/center]"
 text = "Left click to fire"
-
-[node name="RollDirections" type="RichTextLabel" parent="."]
-margin_left = -872.0
-margin_top = 2000.0
-margin_right = -408.0
-margin_bottom = 2080.0
-custom_fonts/normal_font = ExtResource( 5 )
-bbcode_enabled = true
-bbcode_text = "[center]Right click to roll[/center]"
-text = "Right click to roll"
 
 [node name="EnemyStart" parent="." instance=ExtResource( 3 )]
 position = Vector2( -168, 1488 )
@@ -185,10 +175,10 @@ initial_side = "six"
 other_sides = [ "one" ]
 
 [node name="Dicegerous" type="RichTextLabel" parent="."]
-margin_left = -288.0
-margin_top = -520.0
-margin_right = 320.0
-margin_bottom = -468.0
+margin_left = -280.0
+margin_top = -168.0
+margin_right = 328.0
+margin_bottom = -116.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]It's Dice-gerous to go alone![/center]"
@@ -196,10 +186,10 @@ text = "It's Dice-gerous to go alone!"
 fit_content_height = true
 
 [node name="Dicegerous2" type="RichTextLabel" parent="."]
-margin_left = -296.0
-margin_top = -672.0
-margin_right = 312.0
-margin_bottom = -620.0
+margin_left = -288.0
+margin_top = -328.0
+margin_right = 320.0
+margin_bottom = -276.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Take dice.[/center]"
@@ -213,25 +203,25 @@ position = Vector2( -1080, 2104 )
 position = Vector2( -752, 2208 )
 
 [node name="UpgradeStart3" parent="." instance=ExtResource( 4 )]
-position = Vector2( -120, -832 )
+position = Vector2( -94, -494 )
 
 [node name="UpgradeStart4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 160, -800 )
+position = Vector2( 186, -462 )
 
 [node name="UpgradeStart5" parent="." instance=ExtResource( 4 )]
-position = Vector2( -32, -784 )
+position = Vector2( -6, -446 )
 
 [node name="UpgradeStart6" parent="." instance=ExtResource( 4 )]
-position = Vector2( -192, -808 )
+position = Vector2( -166, -470 )
 
 [node name="UpgradeStart7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 232, -824 )
+position = Vector2( 258, -486 )
 
 [node name="UpgradeStart8" parent="." instance=ExtResource( 4 )]
-position = Vector2( 64, -744 )
+position = Vector2( 90, -406 )
 
 [node name="UpgradeStart9" parent="." instance=ExtResource( 4 )]
-position = Vector2( -152, -880 )
+position = Vector2( -126, -542 )
 
 [node name="UpgradeStart10" parent="." instance=ExtResource( 4 )]
-position = Vector2( 136, -896 )
+position = Vector2( 162, -558 )

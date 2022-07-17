@@ -84,9 +84,18 @@ CLOSED: [2022-07-17 Sun 08:02]
 CLOSED: [2022-07-17 Sun 08:49]
 ** [X] bullet sides subtract from the enemy score
 CLOSED: [2022-07-17 Sun 10:02]
-** [ ] cloning - upgrades grant you a clone
+** [X] cloning - upgrades grant you a clone
+CLOSED: [2022-07-17 Sun 12:24]
+** [X] upgrades beyond 6 mean - extra player!
+CLOSED: [2022-07-17 Sun 12:24]
+** SKIP progression - rest of the upgrades, then clone-upgrades
+CLOSED: [2022-07-17 Sun 12:25]
+play until you have 6, then you've unlocked the escort story line
 ** [ ] rolling changes your 'gun'
 guns are just sets of sides (pips)
+** [ ] escort levels
+guide presidice safely to the prom
+** [ ] consider restoring the wall-collisions
 ** [ ] more enemies
 *** mini-boss
 larger, rolls often
@@ -101,13 +110,7 @@ disappears around the level
 *** firing at more interesting intervals
 maybe based on their number?
 *** not firing so lamely in all directions
-** [ ] upgrades come to you when you're close enough
-** [ ] upgrades beyond 6 mean - extra player!
-** [ ] escort levels
-guide presidice safely to the prom
-** [ ] progression - rest of the upgrades, then clone-upgrades
-play until you have 6, then you've unlocked the escort story line
-** [ ] consider restoring the wall-collisions
+* [ ] upgrades come to you when you're close enough
 * [ ] respawn upgrades and enemies after death
 * [ ] in-level music
 * [ ] fix broken 'death' sound

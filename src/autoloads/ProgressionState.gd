@@ -166,7 +166,6 @@ func update_hud():
 
 func _on_player_death(p):
   if p.is_clone:
-    print("clone death!")
     clones.erase(p)
   elif clones.size() > 0:
     # promote clone
@@ -197,17 +196,13 @@ func _on_player_death(p):
 func upgrade_collected(_upgrade):
   # var next_side = player_state["locked_sides"].pop_front()
   if player.health < 6:
-    print("player health less than six, incrementing")
     var next_side = Dice.side_for_num(player.health + 1)
     player_state["respawn_side"] = player.current_side
     player.set_side(next_side)
   else:
-    print("player health six or more, looking for clone to heal")
     var upgraded_clone = false
     for c in clones:
-      print("clone side: ", c.current_side, " health: ", c.health)
       if c.current_side != "six":
-        print("found non-six clone ", c.current_side, " ", c)
         var next_side = Dice.side_for_num(c.health + 1)
         player_state["clone_sides"].erase(c.current_side)
         player_state["clone_sides"].append(next_side)
@@ -216,7 +211,6 @@ func upgrade_collected(_upgrade):
         break
 
     if not upgraded_clone:
-      print("no non-six clone, adding a new one")
       # create a new clone
       var c = spawn_clone()
       player_state["clone_sides"].append(c.current_side)

@@ -4,3 +4,4 @@
 
 [node name="EnemyStart" type="Position2D" groups=["enemy_starts"]]
 script = ExtResource( 1 )
+initial_side = "three"

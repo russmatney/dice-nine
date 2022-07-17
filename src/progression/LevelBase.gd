@@ -47,9 +47,12 @@ func setup_level():
   var player = ProgressionState.spawn_player(player_start)
   setup_player(player)
 
+  var i = 0
   for clone_side in ProgressionState.player_state["clone_sides"]:
-    var clone = ProgressionState.spawn_clone()
+    var offset = Vector2(10, 10) * i
+    var clone = ProgressionState.spawn_clone(offset)
     clone.set_side(clone_side)
+    i += 1
 
   for u_st in upgrade_starts:
     spawn_upgrade(u_st)

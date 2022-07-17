@@ -65,7 +65,10 @@ func _unhandled_input(event):
       player_state["respawn_side"] = player.current_side
       var clone_sides = []
       for c in clones:
-        clone_sides.append(c.current_side)
+        if is_instance_valid(c):
+          clone_sides.append(c.current_side)
+        else:
+          clones.erase(c)
       player_state["clone_sides"] = clone_sides.duplicate()
       player.kill_for_respawn()
       for c in clones:
@@ -140,8 +143,8 @@ func spawn_player(pos:Position2D = player_start, clone_pos = null) -> Node:
 
   return new_player
 
-func spawn_clone():
-  var offset = Vector2(20, 20)
+func spawn_clone(addl_offset = Vector2.ZERO):
+  var offset = Vector2(20, 20) + addl_offset
   var clone = spawn_player(null, player.get_global_position() + offset)
   # attach levelBase listeners
   current_level.setup_player(clone)
@@ -153,8 +156,10 @@ func update_hud():
   if player and is_instance_valid(player):
     var clone_sides = []
     for c in clones:
-      if c and is_instance_valid(c):
-        clone_sides.append(c.current_side)
+     if is_instance_valid(c):
+       clone_sides.append(c.current_side)
+     else:
+       clones.erase(c)
 
     print("setting hud dice: ", player.current_side, " - ", clone_sides)
     hud.set_dice(player.current_side, clone_sides)
@@ -163,8 +168,6 @@ func _on_player_death(p):
   if p.is_clone:
     print("clone death!")
     clones.erase(p)
-    # make sure the player has the camera
-    p.camera.current = true
   elif clones.size() > 0:
     # promote clone
     var new_p = clones.pop_front()
@@ -172,8 +175,6 @@ func _on_player_death(p):
     player.is_clone = false
     player_state["clone_sides"].erase(player.current_side)
     player_state["respawn_side"] = player.current_side
-
-    player.camera.current = true # I think?
   else:
     player_state["respawn_side"] = "one"
 
@@ -187,6 +188,8 @@ func _on_player_death(p):
       gameover_popup.song.play()
       gameover_popup.voice.play()
 
+  # make sure the player has the camera
+  player.camera.current = true
   update_hud()
 
 ### upgrades ##############################################################

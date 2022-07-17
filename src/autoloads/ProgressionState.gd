@@ -59,15 +59,25 @@ func _unhandled_input(event):
     spawn_player()
 
   if event.is_action_pressed("pause"):
-    var t = get_tree()
-    if t.paused:
-      pause_popup.hide()
-      pause_popup.pause_song()
-      t.paused = false
+    if get_tree().paused:
+      resume()
     else:
-      t.paused = true
-      pause_popup.show()
-      pause_popup.resume_song()
+      pause()
+
+func pause():
+  var t = get_tree()
+  t.paused = true
+  if pause_popup and is_instance_valid(pause_popup):
+    pause_popup.show()
+    pause_popup.resume_song()
+
+func resume():
+  var t = get_tree()
+  if pause_popup and is_instance_valid(pause_popup):
+    pause_popup.hide()
+    pause_popup.pause_song()
+  t.paused = false
+
 
 
 ### spawn, death, respawn ####################################################
@@ -84,7 +94,11 @@ func spawn_player(pos:Position2D = player_start) -> Node:
   player.connect("death", self, "_on_player_death", [player])
 
   player.position = player_start.position
-  get_tree().get_root().call_deferred("add_child", player)
+  if Nav.current_scene:
+    Nav.current_scene.call_deferred("add_child", player)
+  else:
+    assert(null, "not sure where to put player")
+  # get_tree().get_root().call_deferred("add_child", player)
 
   hud.set_lives(player_state["lives"])
   hud.set_dice(player_state["unlocked_sides"])

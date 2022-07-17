@@ -13,3 +13,12 @@ func resume_song():
 func pause_song():
   song.stop()
   playback_pos = song.get_playback_position()
+
+
+
+func _on_MainMenu_pressed():
+  ProgressionState.resume()
+  Nav.goto_main_menu()
+
+func _on_Unpause_pressed():
+  ProgressionState.resume()

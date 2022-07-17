@@ -76,7 +76,12 @@ func fire_new_bullet(pos: Position2D):
   var fire_dir = get_global_position().direction_to(new_bullet.position).normalized() * bullet_speed
 
   new_bullet.apply_impulse(Vector2(), fire_dir)
-  get_tree().get_root().call_deferred("add_child", new_bullet)
+
+  if Nav.current_scene:
+    # prefer to add to the current scene, which gets cleaned up
+    Nav.current_scene.call_deferred("add_child", new_bullet)
+  else:
+    get_tree().get_root().call_deferred("add_child", new_bullet)
 
 func fire():
   for pos in fire_positions():

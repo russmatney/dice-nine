@@ -107,7 +107,12 @@ func fire():
   new_bullet.position = fire_position.get_global_position()
   new_bullet.rotation_degrees = rotation_degrees
   new_bullet.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
-  get_tree().get_root().call_deferred("add_child", new_bullet)
+
+  if Nav.current_scene:
+    # prefer to add bullets to the current scene, so they get cleaned up
+    Nav.current_scene.call_deferred("add_child", new_bullet)
+  else:
+    get_tree().get_root().call_deferred("add_child", new_bullet)
 
   sounds.player_fire_sound.play()
   emit_signal("fired")

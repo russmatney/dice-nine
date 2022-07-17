@@ -20,6 +20,7 @@ func goto_scene(path):
   call_deferred("_deferred_goto_scene", path)
 
 func _deferred_goto_scene(path):
+  print("deferred goto scene: ", path)
   # It is now safe to remove the current scene
   current_scene.free()
 
@@ -78,5 +79,6 @@ func win():
   goto_credits()
 
 func start():
+  print("going to level1!")
   goto_level1()
 

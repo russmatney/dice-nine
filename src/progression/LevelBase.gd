@@ -69,7 +69,12 @@ func spawn_enemy(pos:Position2D):
   var sides = [pos.initial_side]
   sides.append_array(pos.other_sides)
   enemy.available_sides = sides
-  get_tree().get_root().call_deferred("add_child", enemy)
+
+  if Nav.current_scene:
+    # prefer to add to the current scene, which gets cleaned up
+    Nav.current_scene.call_deferred("add_child", enemy)
+  else:
+    get_tree().get_root().call_deferred("add_child", enemy)
 
 func _on_enemy_death(en):
   enemies.erase(en)

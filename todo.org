@@ -73,9 +73,12 @@ CLOSED: [2022-07-16 Sat 19:48]
 CLOSED: [2022-07-16 Sat 19:48]
 ** [X] main menu song
 CLOSED: [2022-07-16 Sat 18:16]
-* [ ] credits
-* [ ] win screen
+* [X] credits
+CLOSED: [2022-07-17 Sun 00:11]
+* [X] win screen
+CLOSED: [2022-07-17 Sun 00:11]
 * [ ] in-level music
+* [ ] handle (game over)
 * more interesting
 ** [ ] upgrades come to you when you're close enough
 ** [ ] upgrades beyond 6 mean - extra player!
@@ -106,3 +109,4 @@ maybe just text that flashes/dances around it?
 ** will need to support clone-mode too
 ** maybe should give extra lives?
 * [ ] add a laugh track when you die/get hurt?
+* [ ] background audio player to maintain song across pause, main, and credits

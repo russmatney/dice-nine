@@ -29,7 +29,6 @@ func _ready():
   enemy_starts = get_tree().get_nodes_in_group("enemy_starts")
 
   if not hud or not is_instance_valid(hud):
-      print("progression state creating hud!")
       hud = hud_scene.instance()
       call_deferred("add_child", hud)
 
@@ -38,9 +37,9 @@ func _ready():
   print("level ready")
 
 func setup_level():
-  print("setup level")
   ProgressionState.ensure_hud()
   ProgressionState.ensure_pause()
+  ProgressionState.ensure_gameover()
   ProgressionState.set_current_level(self)
 
   for up in upgrades:

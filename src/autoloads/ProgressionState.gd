@@ -3,6 +3,7 @@ extends Node
 var player_scene = preload("res://src/Player.tscn")
 var hud: CanvasLayer
 var pause_popup: PopupPanel
+var gameover_popup: PopupPanel
 
 var player_state = {
   # "unlocked_sides": ["one", "two"],
@@ -12,6 +13,7 @@ var player_state = {
   "lives": 3,
   "respawn_side": "none",
 }
+var initial_player_state
 
 var player_start
 var player
@@ -25,22 +27,30 @@ func set_current_level(level: LevelBase):
 ### ready ##############################################################
 
 func _ready():
+  initial_player_state = player_state.duplicate(true)
+
   pause_mode = Node.PAUSE_MODE_PROCESS
+
+func reset_state():
+  player_state = initial_player_state.duplicate(true)
 
 func ensure_hud():
   if not hud or not is_instance_valid(hud):
     hud = get_tree().get_root().find_node("HUD", true, false)
-    print("found hud in tree?", hud)
 
-  print("asserting hud exists")
-  assert(hud)
+  assert(hud, "asserting hud exists")
 
 func ensure_pause():
   if not pause_popup or not is_instance_valid(pause_popup):
     pause_popup = get_tree().get_root().find_node("PausePopup", true, false)
 
-  print("asserting pause_popup exists")
-  assert(pause_popup)
+  assert(pause_popup, "asserting pause_popup exists")
+
+func ensure_gameover():
+  if not gameover_popup or not is_instance_valid(gameover_popup):
+    gameover_popup = get_tree().get_root().find_node("GameOver", true, false)
+
+  assert(gameover_popup, "asserting gameover_popup exists")
 
 ### process ##############################################################
 
@@ -54,6 +64,10 @@ func _unhandled_input(event):
     if is_instance_valid(player):
       player_state["respawn_side"] = player.current_side
       player.kill_for_respawn()
+
+    # yep
+    gameover_popup.song.stop()
+
     # TODO do we need to wait?
     # NOTE this allows for life after death
     spawn_player()
@@ -77,8 +91,6 @@ func resume():
     pause_popup.hide()
     pause_popup.pause_song()
   t.paused = false
-
-
 
 ### spawn, death, respawn ####################################################
 
@@ -113,7 +125,10 @@ func _on_player_death(p):
   else:
     # TODO cheat-death system?
     print("no more lives")
-    # game over
+    gameover_popup.show()
+    gameover_popup.song.play()
+    gameover_popup.voice.play()
+
 
 ### progress ##############################################################
 

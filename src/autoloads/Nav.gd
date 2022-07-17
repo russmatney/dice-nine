@@ -20,7 +20,6 @@ func goto_scene(path):
   call_deferred("_deferred_goto_scene", path)
 
 func _deferred_goto_scene(path):
-  print("deferred goto scene: ", path)
   # It is now safe to remove the current scene
   current_scene.free()
 
@@ -79,6 +78,6 @@ func win():
   goto_credits()
 
 func start():
-  print("going to level1!")
+  # NOTE games that don't start through Nav.start() might not get a reset state!
+  ProgressionState.reset_state()
   goto_level1()
-

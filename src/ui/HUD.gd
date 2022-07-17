@@ -46,7 +46,6 @@ func set_lives(num: int):
     5: anim = "five"
     6: anim = "six"
 
-  print("setting lives_anim", num, anim, lives_anim)
   if lives_anim:
     lives_anim.set_animation(anim)
 

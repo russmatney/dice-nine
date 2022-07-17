@@ -8,5 +8,4 @@ onready var player_roll_sound = $PlayerRollSound
 onready var enemy_die_sound = $EnemyDieSound
 onready var enemies_cleared_sound = $EnemiesClearedSound
 onready var enemy_hit_sound = $EnemyHit
-onready var enemy_hit_sound2 = $EnemyHit2
 onready var player_hit = $PlayerHit

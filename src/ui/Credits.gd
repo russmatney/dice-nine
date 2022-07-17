@@ -53,7 +53,7 @@ var credits = [
     "Sounds",
     "",
     "DWSD - Dan Wray",
-    "jhd-prc-5, jhd-clp-28",
+    "jhd-prc-5, jhd-clp-28, jhd-vox-cityskyish",
     "https://freesound.org/people/DWSD/sounds/191613",
     "Licensed under Creative Commons: By Attribution 3.0 License",
     "https://creativecommons.org/licenses/by/3.0",

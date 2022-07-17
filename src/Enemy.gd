@@ -126,8 +126,7 @@ func _on_RollTimer_timeout():
 signal hit
 
 func play_hit_sound():
-  var sound = [sounds.enemy_hit_sound, sounds.enemy_hit_sound2][randi() % 2]
-  sound.play()
+  sounds.enemy_hit_sound.play()
 
 func hit(side):
   emit_signal("hit")

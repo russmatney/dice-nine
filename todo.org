@@ -82,7 +82,9 @@ CLOSED: [2022-07-17 Sun 08:02]
 * more interesting
 ** [X] create dice-nine boss art
 CLOSED: [2022-07-17 Sun 08:49]
-** [ ] bullet sides subtract from the enemy score
+** [X] bullet sides subtract from the enemy score
+CLOSED: [2022-07-17 Sun 10:02]
+** [ ] cloning - upgrades grant you a clone
 ** [ ] rolling changes your 'gun'
 guns are just sets of sides (pips)
 ** [ ] more enemies
@@ -101,8 +103,6 @@ maybe based on their number?
 *** not firing so lamely in all directions
 ** [ ] upgrades come to you when you're close enough
 ** [ ] upgrades beyond 6 mean - extra player!
-** [ ] clone levels
-upgrades grant you a clone
 ** [ ] escort levels
 guide presidice safely to the prom
 ** [ ] progression - rest of the upgrades, then clone-upgrades

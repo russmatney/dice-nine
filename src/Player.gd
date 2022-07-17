@@ -5,6 +5,7 @@ var bullet = preload("res://src/Bullet.tscn")
 
 onready var fire_position = $FirePosition
 onready var anim = $AnimatedSprite
+onready var camera = $Camera2D
 
 var fire_delay = 0.3
 var next_fire_in = 0
@@ -18,6 +19,7 @@ var next_roll_in := 0.0
 var current_side := "none"
 var next_side := ""
 var respawn_side
+var is_clone = false
 
 ### ready #####################################################################
 
@@ -32,7 +34,9 @@ func _ready():
 func set_side(side=null):
   if side:
     current_side = side
-  anim.set_animation(current_side)
+
+  if anim:
+    anim.set_animation(current_side)
 
   health = Dice.num_for_side(current_side)
 

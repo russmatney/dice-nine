@@ -9,7 +9,6 @@ var hud: CanvasLayer
 onready var sounds = $Sounds
 
 onready var player_start = $PlayerStart
-var player
 var portals = []
 var upgrades = []
 var upgrade_starts = []
@@ -45,16 +44,23 @@ func setup_level():
   ProgressionState.ensure_gameover()
   ProgressionState.set_current_level(self)
 
-  player = ProgressionState.spawn_player(player_start)
-  player.connect("roll_start", self, "_on_player_roll_start")
-  player.connect("rolled", self, "_on_player_rolled")
-  player.connect("death", self, "_on_player_death", [player])
+  var player = ProgressionState.spawn_player(player_start)
+  setup_player(player)
+
+  for clone_side in ProgressionState.player_state["clone_sides"]:
+    var clone = ProgressionState.spawn_clone()
+    clone.set_side(clone_side)
 
   for u_st in upgrade_starts:
     spawn_upgrade(u_st)
 
   for e_st in enemy_starts:
     spawn_enemy(e_st)
+
+func setup_player(p):
+  p.connect("roll_start", self, "_on_player_roll_start")
+  p.connect("rolled", self, "_on_player_rolled")
+  p.connect("death", self, "_on_player_death", [p])
 
 func reset():
   # remove left over upgrades

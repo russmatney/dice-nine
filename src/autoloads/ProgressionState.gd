@@ -9,12 +9,15 @@ var player_state = {
   "health": 1,
   "lives": 3,
   "respawn_side": "none",
+  "clone_sides": [],
 }
 var initial_player_state
 
 var player_start
 var player
 var current_level: LevelBase
+
+var clones = []
 
 ### level ####################################################################
 
@@ -60,12 +63,18 @@ func _unhandled_input(event):
   if event.is_action_pressed("respawn"):
     if is_instance_valid(player):
       player_state["respawn_side"] = player.current_side
+      var clone_sides = []
+      for c in clones:
+        clone_sides.append(c.current_side)
+      player_state["clone_sides"] = clone_sides.duplicate()
       player.kill_for_respawn()
+      for c in clones:
+        clones.erase(c)
+        c.kill_for_respawn()
 
     # yep
     gameover_popup.song.stop()
 
-    # TODO do we need to wait?
     # NOTE this allows for life after death
     if current_level:
       current_level.reset()
@@ -92,47 +101,90 @@ func resume():
 
 ### spawn, death, respawn ####################################################
 
-func spawn_player(pos:Position2D = player_start) -> Node:
-  player_start = pos
+# spawn a clone by passing a position as the second arg
+func spawn_player(pos:Position2D = player_start, clone_pos = null) -> Node:
+  if not clone_pos:
+    # don't update player start
+    player_start = pos
   var state = ProgressionState.player_state
 
-  player = player_scene.instance()
-  for key in state:
-    if key in player:
-      player[key] = state[key]
+  var new_player = player_scene.instance()
 
-  player.connect("death", self, "_on_player_death", [player])
+  if clone_pos:
+    new_player.current_side = "three" # arbitrary clone init
+    new_player.set_side() # side-effect, sets the clone health
+  else:
+    # copy in health/lives for player
+    for key in state:
+      if key in new_player:
+        new_player[key] = state[key]
 
-  player.position = player_start.position
+  new_player.connect("death", self, "_on_player_death", [new_player])
+
+  if clone_pos:
+    new_player.position = clone_pos
+    new_player.is_clone = true
+    clones.append(new_player)
+  else:
+    new_player.position = player_start.position
+    # maintain local `player` var
+    player = new_player
+
   if Nav.current_scene:
-    Nav.current_scene.call_deferred("add_child", player)
+    Nav.current_scene.call_deferred("add_child", new_player)
   else:
     assert(null, "not sure where to put player")
   # get_tree().get_root().call_deferred("add_child", player)
 
   update_hud()
 
-  return player
+  return new_player
+
+func spawn_clone():
+  var offset = Vector2(20, 20)
+  var clone = spawn_player(null, player.get_global_position() + offset)
+  # attach levelBase listeners
+  current_level.setup_player(clone)
+  return clone
 
 func update_hud():
   hud.set_lives(player_state["lives"])
-  # TODO include clone sides
-  hud.set_dice([player.current_side])
+
+  var hud_dice = []
+  if player and is_instance_valid(player):
+    hud_dice.append(player.current_side)
+  for c in clones:
+    if c and is_instance_valid(c):
+      hud_dice.append(c.current_side)
+  hud.set_dice(hud_dice)
 
 func _on_player_death(p):
-  player_state["respawn_side"] = "one"
+  if p.is_clone:
+    print("clone death!")
+    clones.erase(p)
+  elif clones.size() > 0:
+    # promote clone
+    var new_p = clones.pop_front()
+    player = new_p
+    player.is_clone = false
+    player_state["clone_sides"].erase(player.current_side)
+    player_state["respawn_side"] = player.current_side
 
-  # TODO handle cloned-player-swap
-
-  if player_state["lives"] > 0:
-    player_state["lives"] -= 1
-    current_level.reset()
+    player.camera.current = true # I think?
   else:
-    # TODO cheat-death system?
-    print("no more lives")
-    gameover_popup.show()
-    gameover_popup.song.play()
-    gameover_popup.voice.play()
+    player_state["respawn_side"] = "one"
+
+    if player_state["lives"] > 0:
+      player_state["lives"] -= 1
+      current_level.reset()
+    else:
+      # TODO cheat-death system?
+      print("no more lives")
+      gameover_popup.show()
+      gameover_popup.song.play()
+      gameover_popup.voice.play()
+
+  update_hud()
 
 ### upgrades ##############################################################
 
@@ -141,14 +193,26 @@ func upgrade_collected(_upgrade):
   if player.health < 6:
     var next_side = Dice.side_for_num(player.health + 1)
     player_state["respawn_side"] = player.current_side
-    player.current_side = next_side
-    player.set_side()
+    player.set_side(next_side)
   else:
-    # CLONE CITY
-    print("time to clone")
+    var upgraded_clone = false
+    for c in clones:
+      if c.current_side != "six":
+        var next_side = Dice.side_for_num(c.health + 1)
+        player_state["clone_sides"].erase(c.current_side)
+        player_state["clone_sides"].append(next_side)
+        c.set_side(next_side)
+        upgraded_clone = true
+        break
 
-  # TODO show active dice (clones) too
-  hud.set_dice([player.current_side])
+    if not upgraded_clone:
+      # create a new clone
+      # CLONE CITY
+      print("time to clone")
+      var c = spawn_clone()
+      player_state["clone_sides"].append(c.current_side)
+
+  update_hud()
 
 ### progress ##############################################################
 
@@ -164,7 +228,15 @@ var next_level_dict = {
 
 func goto_next_level():
   player_state["respawn_side"] = player.current_side
+  var clone_sides = []
+  for c in clones:
+    clone_sides.append(c.current_side)
+  player_state["clone_sides"] = clone_sides.duplicate()
   player.kill_for_respawn()
+  for c in clones:
+    clones.erase(c)
+    c.kill_for_respawn()
+
   # NOTE depends on the 'name' set on the level node!! Brittle!
   var next_level_fn = next_level_dict[current_level.name]
   funcref(Nav, next_level_fn).call_func()

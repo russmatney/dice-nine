@@ -40,6 +40,7 @@ func _ready():
 func setup_level():
   print("setup level")
   ProgressionState.ensure_hud()
+  ProgressionState.ensure_pause()
   ProgressionState.set_current_level(self)
 
   for up in upgrades:

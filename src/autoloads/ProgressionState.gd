@@ -2,6 +2,7 @@ extends Node
 
 var player_scene = preload("res://src/Player.tscn")
 var hud: CanvasLayer
+var pause_popup: PopupPanel
 
 var player_state = {
   # "unlocked_sides": ["one", "two"],
@@ -24,8 +25,7 @@ func set_current_level(level: LevelBase):
 ### ready ##############################################################
 
 func _ready():
-  print("progression state ready")
-
+  pause_mode = Node.PAUSE_MODE_PROCESS
 
 func ensure_hud():
   if not hud or not is_instance_valid(hud):
@@ -34,6 +34,13 @@ func ensure_hud():
 
   print("asserting hud exists")
   assert(hud)
+
+func ensure_pause():
+  if not pause_popup or not is_instance_valid(pause_popup):
+    pause_popup = get_tree().get_root().find_node("PausePopup", true, false)
+
+  print("asserting pause_popup exists")
+  assert(pause_popup)
 
 ### process ##############################################################
 
@@ -50,6 +57,16 @@ func _unhandled_input(event):
     # TODO do we need to wait?
     # NOTE this allows for life after death
     spawn_player()
+
+  if event.is_action_pressed("pause"):
+    var t = get_tree()
+    if t.paused:
+      pause_popup.hide()
+      t.paused = false
+    else:
+      t.paused = true
+      pause_popup.show()
+
 
 ### spawn, death, respawn ####################################################
 

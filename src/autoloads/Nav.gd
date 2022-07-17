@@ -88,3 +88,4 @@ func win():
 
 func start():
   goto_level1()
+
